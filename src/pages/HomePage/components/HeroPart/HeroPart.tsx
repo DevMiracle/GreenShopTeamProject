@@ -1,12 +1,9 @@
 import "./HeroPart.scss";
-import "./Slider-scss/Slick.scss";
-import "./Slider-scss/Slick-theme.scss";
 import Slider from "react-slick";
 import React, { Component } from "react";
 import slide_1_plant from "./assets/slide1.png";
 import slide_2_plant from "./assets/slide2.png";
 import slide_3_plant from "./assets/slide3.png";
-import slide_1_mobile from "./assets/slide1_mobile.png";
 
 export const HeroPart = () => {
   const settings = {
@@ -21,7 +18,7 @@ export const HeroPart = () => {
   return (
     <>
       <Slider {...settings}>
-        <div className="slide1">
+        <div className="slide">
           <div className="wrapper">
             <div className="left-side">
               <p className="header">Welcome to GreenShop</p>
@@ -42,14 +39,13 @@ export const HeroPart = () => {
             </div>
             <div className="right-side">
               <picture>
-               
                 <img src={slide_1_plant} alt="plants" />
               </picture>
             </div>
           </div>
         </div>
 
-        <div className="slide2">
+        <div className="slide">
           <div className="wrapper">
             <div className="left-side">
               <p className="header">Transform Your Space with Plants</p>
@@ -76,7 +72,7 @@ export const HeroPart = () => {
           </div>
         </div>
 
-        <div className="slide3">
+        <div className="slide">
           <div className="wrapper">
             <div className="left-side">
               <p className="header">Elevate Your Decor with Our Plants</p>
@@ -102,7 +98,6 @@ export const HeroPart = () => {
             </div>
           </div>
         </div>
-        
       </Slider>
     </>
   );

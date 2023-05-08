@@ -1,6 +1,9 @@
+@import "./pages/HomePage/components/HeroPart/Slider-scss/Slick.scss";
+@import "./pages/HomePage/components/HeroPart/Slider-scss/Slick-theme.scss";
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family:'Cera Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
