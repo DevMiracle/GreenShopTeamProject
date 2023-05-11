@@ -9,6 +9,10 @@ import product6 from "./assets/product-6.png";
 import product7 from "./assets/product-7.png";
 import product8 from "./assets/product-8.png";
 import product9 from "./assets/product-9.png";
+import heartIcon from "./assets/heart-icon.svg";
+import cartIcon from "./assets/cart-icon.svg";
+import cartHoverIcon from "./assets/cart-hover-icon.svg"
+import heartHoverIcon from "./assets/heart-hover-icon.svg"
 
 export const ProductsPart = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -17,7 +21,7 @@ export const ProductsPart = () => {
       name: "Barberton Daisy",
       price: "119.00",
       image: product1,
-      category: ["House Plants"],
+      category: ["House Plants", "Terrariums"],
     },
     {
       name: "Angel Wing Begonia",
@@ -77,9 +81,8 @@ export const ProductsPart = () => {
     if (category === "All") {
       return products.length;
     }
-    return products.filter((product) =>
-      product.category.includes(category)
-    ).length;
+    return products.filter((product) => product.category.includes(category))
+      .length;
   };
 
   const filteredProducts = products.filter(
@@ -237,7 +240,35 @@ export const ProductsPart = () => {
           {filteredProducts.map((product, index) => (
             <div className="product-box" key={index}>
               <div className="product-border">
-                <img src={product.image} alt="" />
+                <div className="product-icons">
+                  <div className="add-to-button">
+                    <img
+                      src={cartIcon}
+                      alt="Add to Cart"
+                      className="default-icon"
+                    />
+                    <img
+                      src={cartHoverIcon}
+                      alt="Add to Cart"
+                      className="hover-icon"
+                    />
+                  </div>
+                  <div className="add-to-button">
+                    <img
+                      src={heartIcon}
+                      alt="Add to Favorites"
+                      className="default-icon"
+                    />
+                    <img
+                      src={heartHoverIcon}
+                      alt="Add to Favorites"
+                      className="hover-icon"
+                    />
+                  </div>
+                </div>
+
+                <img src={product.image} alt=""
+                    className="product-image" />
               </div>
               <p>{product.name}</p>
               <span>${product.price}</span>

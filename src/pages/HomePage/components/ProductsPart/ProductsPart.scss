@@ -9,6 +9,10 @@
   .categories {
     background-color: #fbfbfb;
     h4 {
+      font-family: "Cera Pro";
+      font-weight: 700;
+      font-size: 18px;
+
       color: #3d3d3d;
       margin: 0;
       padding-top: 14px;
@@ -17,12 +21,14 @@
     .categories-list {
       margin: 24px;
       font-family: "Cera Pro";
-      font-style: normal;
       font-weight: 400;
       font-size: 15px;
       line-height: 40px;
       .category-button {
         cursor: pointer;
+        &:hover {
+          color: #46a358;
+        }
         .category-button-content {
           display: flex;
           justify-content: space-between;
@@ -39,7 +45,6 @@
   .main {
     .products-top {
       font-family: "Cera Pro";
-      font-style: normal;
       font-weight: 400;
       font-size: 15px;
       line-height: 16px;
@@ -52,8 +57,6 @@
         text-decoration: none;
       }
       .active {
-        font-family: "Cera Pro";
-        font-style: normal;
         font-weight: 700;
         font-size: 15px;
         line-height: 16px;
@@ -74,18 +77,100 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 33px;
       padding-top: 31px;
+    
       .product-box {
+        font-family: "Cera Pro";
+    
         .product-border {
+          position: relative;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
           width: 258px;
           height: 300px;
           background-color: #fbfbfb;
+          cursor: pointer;
+    
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+          }
+    
+          &:hover:before {
+            background-color: #46a358;
+          }
+    
+          &:hover {
+            .product-image {
+              transform: translateY(-5px); /* Adjust the value as needed */
+            }
+    
+            .product-icons {
+              opacity: 1;
+            }
+          }
+    
+          .product-image {
+            position: relative;
+            z-index: 1;
+          }
+    
+          .product-icons {
+            display: flex;
+            position: absolute;
+            left: 0;
+            right: 0;
+            transform: translate(0%, 275%);
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+            //Separate icons from each other
+            justify-content: space-evenly;
+            margin: 0 70px; //Limit the icon box from the left and from the right
+
+            .add-to-button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 4px;
+              cursor: pointer;
+              margin: 3px;
+              background: #ffffff;
+              width: 35px;
+              height: 35px;
+    
+              .default-icon {
+                display: flex;
+
+              }
+    
+              .hover-icon {
+                display: none;
+              }
+    
+              &:hover {
+                .default-icon {
+                  display: none;
+                }
+    
+                .hover-icon {
+                  display: flex;
+                }
+              }
+            }
+          }
         }
+    
+
         p {
-          font-family: "Cera Pro";
-          font-style: normal;
           font-weight: 400;
           font-size: 16px;
           line-height: 16px;
@@ -96,10 +181,9 @@
           margin: 0;
           padding-top: 12px;
           padding-bottom: 6px;
+          cursor: pointer;
         }
         span {
-          font-family: "Cera Pro";
-          font-style: normal;
           font-weight: 700;
           font-size: 18px;
           line-height: 16px;
