@@ -1,5 +1,6 @@
 import './HomePage.scss'
 import HeroPart from './components/HeroPart/HeroPart';
+import{BlogPart} from './components/BlogPart/BlogPart'
 
 
 
@@ -7,8 +8,8 @@ import HeroPart from './components/HeroPart/HeroPart';
 export const HomePage = () => {
     return (
         <>
-        <HeroPart />
-    
+        {/* <HeroPart /> */}
+        <BlogPart />
 
         </>
     );
