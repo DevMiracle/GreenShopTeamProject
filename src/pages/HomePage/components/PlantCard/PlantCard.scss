@@ -29,7 +29,7 @@ body {
       align-items: flex-end;
       margin-right: 20px;
       .card-header {
-        color: $card-header-color;
+        color: $header-color;
         margin-top: 37px;
         width: 150px;
         font-weight: 900;
@@ -41,7 +41,7 @@ body {
       .card-main {
         margin-top: 10px;
         margin-left: 10px;
-        color: $card-main-color;
+        color: $main-text-color;
         width: 292px;
         font-weight: 400;
         font-size: 14px;
@@ -53,7 +53,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $button-background-color;
+        background-color: $green-color;
         color: $button-text-color;
         border-radius: 6px;
         width: 140px;

@@ -18,7 +18,7 @@ html {
         text-transform: uppercase;
         font-weight: 500;
         font-size: 19px;
-        color: $slide-header-color;
+        color: $header-color;
       }
       .slogan {
         font-weight: 900;
@@ -29,13 +29,13 @@ html {
 
           #planet-color {
             text-transform: uppercase;
-            color: $slide-green-word-color;
+            color: $green-color;
           }
         }
       }
       .footer {
         margin-top: -65px;
-        color: $slide-footer-color;
+        color: $main-text-color;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
