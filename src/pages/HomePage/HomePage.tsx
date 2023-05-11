@@ -6,7 +6,7 @@ import PlantCard from "./components/PlantCard/PlantCard";
 export const HomePage = () => {
   return (
     <>
-      {/* <HeroPart /> */}
+      <HeroPart />
       <PlantCard />
     </>
   );
