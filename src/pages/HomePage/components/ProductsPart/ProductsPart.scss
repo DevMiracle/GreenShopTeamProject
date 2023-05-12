@@ -9,7 +9,7 @@
   .categories {
     background-color: #fbfbfb;
     h4 {
-      font-family: "Cera Pro";
+      font-family: 'Cera Pro';
       font-weight: 700;
       font-size: 18px;
 
@@ -19,13 +19,21 @@
       padding-left: 18px;
     }
     .categories-list {
+      display: flex;
+      flex-direction: column;
       margin: 24px;
-      font-family: "Cera Pro";
+      font-family: 'Cera Pro';
       font-weight: 400;
       font-size: 15px;
       line-height: 40px;
       .category-button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
         cursor: pointer;
+        outline: inherit;
         &:hover {
           color: #46a358;
         }
@@ -44,7 +52,7 @@
 
   .main {
     .products-top {
-      font-family: "Cera Pro";
+      font-family: 'Cera Pro';
       font-weight: 400;
       font-size: 15px;
       line-height: 16px;
@@ -77,10 +85,10 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 33px;
       padding-top: 31px;
-    
+
       .product-box {
-        font-family: "Cera Pro";
-    
+        font-family: 'Cera Pro';
+
         .product-border {
           position: relative;
           display: flex;
@@ -91,9 +99,9 @@
           height: 300px;
           background-color: #fbfbfb;
           cursor: pointer;
-    
+
           &:before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -102,26 +110,26 @@
             background-color: transparent;
             transition: background-color 0.3s ease;
           }
-    
+
           &:hover:before {
             background-color: #46a358;
           }
-    
+
           &:hover {
             .product-image {
               transform: translateY(-5px); /* Adjust the value as needed */
             }
-    
+
             .product-icons {
               opacity: 1;
             }
           }
-    
+
           .product-image {
             position: relative;
             z-index: 1;
           }
-    
+
           .product-icons {
             display: flex;
             position: absolute;
@@ -146,21 +154,20 @@
               background: #ffffff;
               width: 35px;
               height: 35px;
-    
+
               .default-icon {
                 display: flex;
-
               }
-    
+
               .hover-icon {
                 display: none;
               }
-    
+
               &:hover {
                 .default-icon {
                   display: none;
                 }
-    
+
                 .hover-icon {
                   display: flex;
                 }
@@ -168,7 +175,6 @@
             }
           }
         }
-    
 
         p {
           font-weight: 400;
