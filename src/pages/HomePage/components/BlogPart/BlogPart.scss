@@ -1,0 +1,21 @@
+$blog-header-color: #3d3d3d;
+$blog-title-color: #727272;
+
+.blog_wrapper {
+  padding-top: 138px;
+  h2 {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 16px;
+    text-align: center;
+    color: $blog-header-color;
+  }
+  .title {
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: $blog-title-color;
+  }
+}
