@@ -103,10 +103,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">All</span>
-              <span className="category-count">({getCategoryItemCount('All')})</span>
-            </div>
+            <span className="category-name">All</span>
+            <span className="category-count">({getCategoryItemCount('All')})</span>
           </button>
           <button
             type="button"
@@ -118,10 +116,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">House Plants</span>
-              <span className="category-count">({getCategoryItemCount('House Plants')})</span>
-            </div>
+            <span className="category-name">House Plants</span>
+            <span className="category-count">({getCategoryItemCount('House Plants')})</span>
           </button>
           <button
             type="button"
@@ -133,10 +129,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">Potter Plants</span>
-              <span className="category-count">({getCategoryItemCount('Potter Plants')})</span>
-            </div>
+            <span className="category-name">Potter Plants</span>
+            <span className="category-count">({getCategoryItemCount('Potter Plants')})</span>
           </button>
           <button
             type="button"
@@ -148,10 +142,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">Seeds</span>
-              <span className="category-count">({getCategoryItemCount('Seeds')})</span>
-            </div>
+            <span className="category-name">Seeds</span>
+            <span className="category-count">({getCategoryItemCount('Seeds')})</span>
           </button>
 
           <button
@@ -164,10 +156,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">Small Plants</span>
-              <span className="category-count">({getCategoryItemCount('Small Plants')})</span>
-            </div>
+            <span className="category-name">Small Plants</span>
+            <span className="category-count">({getCategoryItemCount('Small Plants')})</span>
           </button>
 
           <button
@@ -180,10 +170,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">Big Plants</span>
-              <span className="category-count">({getCategoryItemCount('Big Plants')})</span>
-            </div>
+            <span className="category-name">Big Plants</span>
+            <span className="category-count">({getCategoryItemCount('Big Plants')})</span>
           </button>
 
           <button
@@ -196,10 +184,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">Succulents</span>
-              <span className="category-count">({getCategoryItemCount('Succulents')})</span>
-            </div>
+            <span className="category-name">Succulents</span>
+            <span className="category-count">({getCategoryItemCount('Succulents')})</span>
           </button>
 
           <button
@@ -212,10 +198,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">Terrariums</span>
-              <span className="category-count">({getCategoryItemCount('Terrariums')})</span>
-            </div>
+            <span className="category-name">Terrariums</span>
+            <span className="category-count">({getCategoryItemCount('Terrariums')})</span>
           </button>
           <button
             type="button"
@@ -227,10 +211,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">Gardening</span>
-              <span className="category-count">({getCategoryItemCount('Gardening')})</span>
-            </div>
+            <span className="category-name">Gardening</span>
+            <span className="category-count">({getCategoryItemCount('Gardening')})</span>
           </button>
 
           <button
@@ -243,10 +225,8 @@ export const ProductsPart = () => {
               }
             }}
           >
-            <div className="category-button-content">
-              <span className="category-name">Accessories</span>
-              <span className="category-count">({getCategoryItemCount('Accessories')})</span>
-            </div>
+            <span className="category-name">Accessories</span>
+            <span className="category-count">({getCategoryItemCount('Accessories')})</span>
           </button>
         </div>
       </div>

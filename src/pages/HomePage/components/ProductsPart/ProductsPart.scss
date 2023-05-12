@@ -34,13 +34,12 @@
         font: inherit;
         cursor: pointer;
         outline: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
         &:hover {
           color: #46a358;
-        }
-        .category-button-content {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
         }
       }
       .category-button.selected {
