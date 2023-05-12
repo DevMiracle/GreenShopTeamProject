@@ -1,5 +1,4 @@
-$blog-header-color: #3d3d3d;
-$blog-title-color: #727272;
+@import '/src/variables';
 
 .blog_wrapper {
   padding-top: 138px;
@@ -8,7 +7,7 @@ $blog-title-color: #727272;
     font-size: 30px;
     line-height: 16px;
     text-align: center;
-    color: $blog-header-color;
+    color: $header-color;
   }
   .title {
     display: flex;
@@ -16,6 +15,90 @@ $blog-title-color: #727272;
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
-    color: $blog-title-color;
+    color: $main-text-color;
   }
+
+  .blog_cards {
+    display: flex;
+    gap: 44px;
+    margin-top: 35px;
+    justify-content: center;
+
+    .card {
+      background-color: $card-background;
+      width: 268px;
+      height: 362.17px;
+      .main {
+        padding: 10px;
+        .card_img {
+          width: 100%;
+        }
+        .date {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 16px;
+          color: $green-color;
+        }
+        .card_header {
+          color: $header-color;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 26px;
+        }
+        .card_main_text {
+          color: $main-text-color;
+          margin-top: 4px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 22px;
+        }
+        .link {
+          margin-top: 9px;
+
+          a {
+            text-decoration: none;
+            color: $header-color;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            display: flex;
+            gap: 7px;
+
+              img{
+                margin-top: 2px;
+              }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 426px) {
+  .blog_wrapper .title{
+    padding: 5px;
+    font-size: 15px;
+  }
+  .blog_wrapper .blog_cards{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 427px) and (max-width: 768px){
+  .blog_wrapper .blog_cards{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   justify-items: center;
+   gap: 24px;
+  }
+}
+
+@media (max-width: 1025px){
+  .blog_wrapper .blog_cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 35px;
+   }
 }
