@@ -23,7 +23,7 @@ export const Footer = () => {
             <div className="boxes">
               <img src={gardencare} alt="" />
               <h5>Garden Care</h5>
-              <p>We are an online plant shop offering a wide range of cheap and trendy plants.</p>
+              <p>Transform your garden into a flourishing paradise with our expert garden care tips.</p>
             </div>
             <div className="boxes">
               <img src={plantrenovation} alt="" />
@@ -32,8 +32,8 @@ export const Footer = () => {
             </div>
             <div className="boxes">
               <img src={watering} alt="" />
-              <h5>Watering Graden</h5>
-              <p>We are an online plant shop offering a wide range of cheap and trendy plants.</p>
+              <h5>Watering Garden</h5>
+              <p>Keep your garden looking fresh with our selection of watering tools and expert tips.</p>
             </div>
           </div>
           <div className="right">
@@ -62,11 +62,11 @@ export const Footer = () => {
           </div>
           <div className="location">
             <img src={mail} alt="" />
-            <p>contact@greenshop.com</p>
+            <a href="contact@greenshop.com">contact@greenshop.com</a>
           </div>
           <div className="location">
             <img src={number} alt="" />
-            <p>+88 01911 717 490</p>
+            <a href="tel:+88 01911 717 490">+88 01911 717 490</a>
           </div>
         </div>
         <div className="bottom">
@@ -74,31 +74,31 @@ export const Footer = () => {
             <div className="account">
               <p>My Account</p>
               <ul>
-                <li>My Account</li>
-                <li>Our stores</li>
-                <li>Contact us</li>
-                <li>Carees</li>
-                <li>Specials</li>
+                <a href="/">My Account</a>
+                <a href="/">Our stores</a>
+                <a href="/">Contact us</a>
+                <a href="/">Carees</a>
+                <a href="/">Specials</a>
               </ul>
             </div>
             <div className="account">
               <p>Help & Guide</p>
               <ul>
-                <li>Help Center</li>
-                <li>How to Buy</li>
-                <li>Shipping & Delivery</li>
-                <li>Product Policy</li>
-                <li>How to Return</li>
+                <a href="/">Help Center</a>
+                <a href="/">How to Buy</a>
+                <a href="/">Shipping & Delivery</a>
+                <a href="/">Product Policy</a>
+                <a href="/">How to Return</a>
               </ul>
             </div>
             <div className="account">
               <p>Categories</p>
               <ul>
-                <li>House Plants</li>
-                <li>Potter Plants</li>
-                <li>Seeds</li>
-                <li>Small Plants</li>
-                <li>Accessories</li>
+                <a href="/">House Plants</a>
+                <a href="/">Potter Plants</a>
+                <a href="/">Seeds</a>
+                <a href="/">Small Plants</a>
+                <a href="/">Accessories</a>
               </ul>
             </div>
           </div>
@@ -107,19 +107,29 @@ export const Footer = () => {
               <p>Social Media</p>
               <div className="logos">
                 <div className="box">
-                  <img src={facebook} alt="" />
+                  <a href="/">
+                    <img src={facebook} alt="" />
+                  </a>
                 </div>
                 <div className="box">
-                  <img src={instagram} alt="" />
+                  <a href="/">
+                    <img src={instagram} alt="" />
+                  </a>
                 </div>
                 <div className="box">
-                  <img src={twitter} alt="" />
+                  <a href="/">
+                    <img src={twitter} alt="" />
+                  </a>
                 </div>
                 <div className="box">
-                  <img src={linkedin} alt="" />
+                  <a href="/">
+                    <img src={linkedin} alt="" />
+                  </a>
                 </div>
                 <div className="box">
-                  <img src={union} alt="" />
+                  <a href="/">
+                    <img src={union} alt="" />
+                  </a>
                 </div>
               </div>
             </div>
