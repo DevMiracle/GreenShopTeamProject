@@ -20,7 +20,7 @@
     margin-top: 44px;
     gap: 26px;
     width: 219px !important;
-    height: 311px;
+    height: 255px;
 
     .top {
       background-color: $card-background;
@@ -28,10 +28,13 @@
     .bottom {
       margin-top: 19px;
       .title {
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 16px;
-        color: $header-color;
+        a {
+          text-decoration: none;
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 16px;
+          color: $header-color;
+        }
       }
       .price {
         margin-top: 5px;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import SliderSettings from '../SliderSettings/SliderSettings';
 import "./ProductSlider.scss";
 import "./slider-scss/ProductSliders.scss";
 import "./slider-scss/ProductSliderTheme.scss";
@@ -67,56 +68,22 @@ const slides = [
   },
 ];
 
-export default class ProductSlider extends Component {
+export class ProductSlider extends Component {
   render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 700,
-      slidesToShow: 5,
-      slidesToScroll: 5,
-      initialSlide: 0,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true,
-          },
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2,
-          },
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-      ],
-    };
     return (
       <div className="header">
-        <span className="products">Releted Products</span>
+        <span className="products">Related Products</span>
         <div className="line">
           <img src={line} alt="" />
         </div>
-        <Slider {...settings}>
+        <Slider {...SliderSettings}>
           {slides.map((slide) => (
             <div className="slide" key={slide.title}>
               <div className="top">
-                <img src={slide.image} alt="" />
+                <a href="/"><img src={slide.image} alt="" /></a>
               </div>
               <div className="bottom">
-                <div className="title">{slide.title}</div>
+                <div className="title"><a href="/">{slide.title}</a></div>
                 <div className="price">{slide.price}</div>
               </div>
             </div>
@@ -126,3 +93,5 @@ export default class ProductSlider extends Component {
     );
   }
 }
+
+export default ProductSlider;
