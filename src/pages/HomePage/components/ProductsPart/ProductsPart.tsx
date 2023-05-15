@@ -1,77 +1,37 @@
 import './ProductsPart.scss';
+import { products } from './ProductsData';
 import React, { useState } from 'react';
 import cartHoverIcon from './assets/cart-hover-icon.svg';
 import cartIcon from './assets/cart-icon.svg';
 import heartHoverIcon from './assets/heart-hover-icon.svg';
 import heartIcon from './assets/heart-icon.svg';
-import product1 from './assets/product-1.png';
-import product2 from './assets/product-2.png';
-import product3 from './assets/product-3.png';
-import product4 from './assets/product-4.png';
-import product5 from './assets/product-5.png';
-import product6 from './assets/product-6.png';
-import product7 from './assets/product-7.png';
-import product8 from './assets/product-8.png';
-import product9 from './assets/product-9.png';
+import noProducts from './assets/no-products.png';
 
 export const ProductsPart = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const products = [
-    {
-      name: 'Barberton Daisy',
-      price: '119.00',
-      image: product1,
-      category: ['House Plants', 'Terrariums'],
-    },
-    {
-      name: 'Angel Wing Begonia',
-      price: '169.00',
-      image: product2,
-      category: ['Potter Plants'],
-    },
-    {
-      name: 'African Violet',
-      price: '199.00',
-      image: product3,
-      category: ['House Plants'],
-    },
-    {
-      name: 'Beach Spider Lily',
-      price: '129.00',
-      image: product4,
-      category: ['Potter Plants', 'Big Plants'],
-    },
-    {
-      name: 'Blushing Bromeliad',
-      price: '139.00',
-      image: product5,
-      category: ['Potter Plants'],
-    },
-    {
-      name: 'Aluminum Plant',
-      price: '179.00',
-      image: product6,
-      category: ['Seeds'],
-    },
-    {
-      name: "Bird's Nest Fern",
-      price: '99.00',
-      image: product7,
-      category: ['Seeds'],
-    },
-    {
-      name: 'Broadleaf Lady Palm',
-      price: '59.00',
-      image: product8,
-      category: ['Terrariums'],
-    },
-    {
-      name: 'Chinese Evergreen',
-      price: '39.00',
-      image: product9,
-      category: ['Seeds'],
-    },
-  ];
+  const [selectedFilter, setSelectedFilter] = useState('');
+
+  const handleFilterClick = (filter: string) => {
+    setSelectedFilter(filter);
+  };
+
+  const getFilteredProducts = () => {
+    let filtered = [...products];
+
+    if (selectedCategory !== 'All') {
+      filtered = filtered.filter((product) => product.category.includes(selectedCategory));
+    }
+
+    if (selectedFilter === 'New Arrival') {
+      filtered = filtered.filter((product) => product.newArrival);
+    } else if (selectedFilter === 'Sale') {
+      filtered = filtered.filter((product) => product.sale);
+    }
+
+    return filtered;
+  };
+
+  const filteredProducts = getFilteredProducts();
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
@@ -84,9 +44,11 @@ export const ProductsPart = () => {
     return products.filter((product) => product.category.includes(category)).length;
   };
 
-  const filteredProducts = products.filter(
-    (product) => selectedCategory === 'All' || product.category.includes(selectedCategory),
-  );
+  const calculateSalePrice = (price: string, discountPercentage: number): string => {
+    // Calculate the new price based on the discount percentage
+    const newPrice = parseFloat(price) * (1 - discountPercentage);
+    return newPrice.toFixed(2); // Round the new price to 2 decimal places
+  };
 
   return (
     <div className="products-container">
@@ -233,33 +195,76 @@ export const ProductsPart = () => {
 
       <div className="main">
         <div className="products-top">
-          <a href="/" className="active">
+          <button
+            className={`product-filter ${selectedFilter === '' ? 'active' : ''}`}
+            onClick={() => handleFilterClick('')}
+          >
             All Plants
-          </a>
-          <a href="/">New Arrivals</a>
-          <a href="/">Sale</a>
+          </button>
+          <button
+            className={`product-filter ${selectedFilter === 'New Arrival' ? 'active' : ''}`}
+            onClick={() => handleFilterClick('New Arrival')}
+          >
+            New Arrivals
+          </button>
+          <button
+            className={`product-filter ${selectedFilter === 'Sale' ? 'active' : ''}`}
+            onClick={() => handleFilterClick('Sale')}
+          >
+            Sale
+          </button>
         </div>
         <div className="products">
-          {filteredProducts.map((product, index) => (
-            <div className="product-box" key={index}>
-              <div className="product-border">
-                <div className="product-icons">
-                  <div className="add-to-button">
-                    <img src={cartIcon} alt="Add to Cart" className="default-icon" />
-                    <img src={cartHoverIcon} alt="Add to Cart" className="hover-icon" />
+          {/*Display noProducts image when there is no products */}
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product, index) => (
+              <div className="product-box" key={index}>
+                <div className="product-border">
+                  {/* Display 'sale' on top of the products */}
+                  {product.sale && (
+                    <div className="discount-label">{`${Math.floor(
+                      product.discountPercentage * 100,
+                    )}% off`}</div>
+                  )}
+                  <div className="product-icons">
+                    <div className="add-to-button">
+                      <img src={cartIcon} alt="Add to Cart" className="default-icon" />
+                      <img src={cartHoverIcon} alt="Add to Cart" className="hover-icon" />
+                    </div>
+                    <div className="add-to-button">
+                      <img src={heartIcon} alt="Add to Favorites" className="default-icon" />
+                      <img src={heartHoverIcon} alt="Add to Favorites" className="hover-icon" />
+                    </div>
                   </div>
-                  <div className="add-to-button">
-                    <img src={heartIcon} alt="Add to Favorites" className="default-icon" />
-                    <img src={heartHoverIcon} alt="Add to Favorites" className="hover-icon" />
-                  </div>
+                  <img src={product.image} alt="" className="product-image" />
                 </div>
-
-                <img src={product.image} alt="" className="product-image" />
+                <span className="product-name">
+                  {product.name}
+                  {/* Display 'New' near the product's name */}
+                  {product.newArrival && (
+                    <div className="new-arrival-label">
+                      <span className="new">New</span>
+                    </div>
+                  )}
+                </span>
+                {product.sale ? ( // Check if the product is on sale
+                  <div>
+                    <span className="new-price">
+                      ${calculateSalePrice(product.price, product.discountPercentage)}
+                    </span>{' '}
+                    {/* Display the new price */}
+                    <span className="old-price">${product.price}</span> {/* Display the old price */}
+                  </div>
+                ) : (
+                  <span className="price">${product.price}</span> // Display the regular price
+                )}
               </div>
-              <p>{product.name}</p>
-              <span>${product.price}</span>
+            ))
+          ) : (
+            <div className="no-products">
+              <img className="no-products-image" src={noProducts} alt="No products" />
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>
