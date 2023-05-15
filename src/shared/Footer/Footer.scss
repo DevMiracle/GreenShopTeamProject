@@ -1,0 +1,307 @@
+.footer {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  font-family: 'Cera Pro';
+  .invitation {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 23px 0px 25px;
+    justify-content: space-between;
+    .left {
+      display: flex;
+      flex-direction: row;
+      .boxes {
+        padding-right: 50px;
+        border-right: 1px solid rgba(70, 163, 88, 0.1);
+        img {
+          object-fit: contain;
+          width: 100px;
+          height: 100px;
+          margin-bottom: 15px;
+        }
+        h5 {
+          font-size: 17px;
+          font-weight: 700;
+          margin: 0;
+        }
+        p {
+          font-size: 14px;
+          color: #727272;
+          width: 204px;
+          line-height: 22px;
+        }
+      }
+      .boxes:nth-child(2),
+      .boxes:nth-child(3) {
+        padding-left: 50px;
+      }
+      .boxes:nth-child(3) {
+        border: none;
+      }
+    }
+    .right {
+      width: 370px;
+      form {
+        padding-top: 10px;
+        p {
+          font-family: Cera Pro;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 16px;
+          letter-spacing: 0em;
+          text-align: left;
+        }
+        .join {
+          display: flex;
+          width: 354px;
+          height: 40px;
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.06);
+          padding-top: 25px;
+          input {
+            outline: none;
+            width: 265px;
+            font-family: 'Cera Pro';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            padding-left: 11px;
+            line-height: 16px;
+            color: #acacac;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+          }
+          button {
+            width: 85px;
+            background: #46a358;
+            color: white;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            border: none;
+            font-family: 'Cera Pro';
+            cursor: pointer;
+          }
+        }
+      }
+      p {
+        color: #727272;
+        width: 354px;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        padding-top: 25px;
+        margin: 0;
+      }
+    }
+  }
+  .contact {
+    background: rgba(70, 163, 88, 0.1);
+    border-top: 1px solid #46a358;
+    border-bottom: 1px solid #46a358;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    .greenshop {
+      display: flex;
+      padding-left: 35px;
+      align-items: center;
+      width: 240px;
+      img {
+        height: 34px;
+        width: 34px;
+      }
+      p {
+        color: #46a358;
+        font-weight: 900;
+        font-family: 'Cera Pro';
+        padding-left: 10px;
+      }
+    }
+    .location {
+      width: 300px;
+      padding-left: 17px;
+      display: flex;
+      align-items: center;
+      p {
+        padding-left: 15px;
+        color: #3d3d3d;
+        font-family: 'Cera Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        width: 176px;
+      }
+      a {
+        padding-left: 15px;
+        color: #3d3d3d;
+        font-family: 'Cera Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        width: 176px;
+        text-decoration: none;
+      }
+    }
+  }
+  .bottom {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 25px 20px 25px;
+    border-bottom: 1px solid #46a358;
+    .left {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .account {
+        width: 305px;
+        p {
+          font-family: 'Cera Pro';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 16px;
+          color: #3d3d3d;
+        }
+        ul {
+          padding: 0px;
+          a {
+            font-family: 'Cera Pro';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 30px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            color: #3d3d3d;
+          }
+        }
+      }
+    }
+    .right {
+      padding-left: 25px;
+      .social {
+        p {
+          font-family: 'Cera Pro';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 16px;
+          color: #3d3d3d;
+        }
+        .logos {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(70, 163, 88, 0.2);
+            border-radius: 4px;
+            object-fit: contain;
+            height: 30px;
+            width: 30px;
+          }
+        }
+      }
+      .pay {
+        padding-top: 15px;
+        p {
+          font-family: 'Cera Pro';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 16px;
+          color: #3d3d3d;
+        }
+      }
+    }
+  }
+}
+.end {
+  display: flex;
+  justify-content: center;
+  p {
+    font-family: 'Cera Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+  }
+}
+
+
+@media (max-width: 426px) {
+  .footer {
+    .invitation {
+      flex-wrap: wrap;
+      .left {
+        margin: 20px 0 20px 0;
+        flex-wrap: wrap;
+        .boxes {
+          padding-left: 50px;
+          border: none;
+        }
+      }
+    }
+    .contact {
+      padding: 20px 0 20px 0;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      .greenshop {
+        padding-left: 0;
+        justify-content: center;
+      }
+      .location {
+        padding-left: 0;
+      }
+    }
+    .bottom {
+      flex-wrap: wrap;
+      .left {
+        padding: 20px 0 20px 0;
+        flex-wrap: wrap;
+        gap: 40px;
+        .account {
+          text-align: center;
+          p {
+            margin: 0;
+          }
+        }
+      }
+      .right {
+        display: block;
+        padding: 0;
+        gap: 0;
+      }
+    }
+  }
+}
+
+// @media (max-width: 1025px) {
+//   .footer {
+//     .invitation {
+//       flex-wrap: wrap;
+//       justify-content: center;
+//     }
+//     .bottom {
+//       flex-wrap: wrap;
+//       .right {
+//         // display: flex;
+//         padding-left: 0;
+//         // gap: 415px;
+//         .pay {
+//           padding-top: 0;
+//         }
+//       }
+//     }
+//   }
+// }

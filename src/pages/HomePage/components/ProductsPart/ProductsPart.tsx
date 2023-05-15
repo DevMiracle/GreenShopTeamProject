@@ -1,1 +1,1 @@
-import './ProductsPart.scss'
+import './ProductsPart.scss';

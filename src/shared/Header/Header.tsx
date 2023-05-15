@@ -1,9 +1,9 @@
-import './Header.scss'
+import './Header.scss';
 
 // Uncomment this when you start to work
 // export const Header = () => {
 //     return (
-        
+
 //     );
 // }
 
