@@ -5,7 +5,11 @@ html {
 }
 
 .slide {
-  background: $slide-background;
+  background: linear-gradient(
+    97.77deg,
+    rgba(245, 245, 245, 0.5) -23.46%,
+    rgba(245, 245, 245, 0.5) 107.51%
+  );
   .wrapper {
     height: 518px;
     display: flex;
@@ -18,7 +22,7 @@ html {
         text-transform: uppercase;
         font-weight: 500;
         font-size: 19px;
-        color: $header-color;
+        color: $dark-gray;
       }
       .slogan {
         font-weight: 900;
@@ -29,13 +33,13 @@ html {
 
           #planet-color {
             text-transform: uppercase;
-            color: $green-color;
+            color: $green;
           }
         }
       }
       .footer {
         margin-top: -65px;
-        color: $main-text-color;
+        color: $gray;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -43,8 +47,8 @@ html {
       }
       .shop-button {
         margin-top: 44px;
-        background-color: #46a358;
-        color: #ffffff;
+        background-color: $green;
+        color: $white;
         border-radius: 6px;
         width: 140px;
         height: 40px;

@@ -10,7 +10,7 @@
     font-weight: 700;
     font-size: 17px;
     line-height: 16px;
-    color: $green-color;
+    color: $green;
   }
   .line {
     margin-top: 12px;
@@ -23,7 +23,7 @@
     height: 255px;
 
     .top {
-      background-color: $card-background;
+      background-color: $off-white;
     }
     .bottom {
       margin-top: 19px;
@@ -33,7 +33,7 @@
           font-weight: 400;
           font-size: 15px;
           line-height: 16px;
-          color: $header-color;
+          color: $dark-gray;
         }
       }
       .price {
@@ -41,7 +41,7 @@
         font-weight: 700;
         font-size: 16px;
         line-height: 16px;
-        color: $green-color;
+        color: $green;
       }
     }
   }

@@ -1,3 +1,4 @@
+@import "/src/variables";
 .slick-prev,
 .slick-next
 {
@@ -182,5 +183,5 @@
 .slick-dots li.slick-active button:before
 {
     opacity: .75;
-    color: #46A358;
+    color: $green;
 }
