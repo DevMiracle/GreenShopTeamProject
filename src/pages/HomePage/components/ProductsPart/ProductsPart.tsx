@@ -1,6 +1,7 @@
 import './ProductsPart.scss';
 import { products } from './ProductsData';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import arrowDownIcon from './assets/arrowhead-down-icon.svg';
 import cartHoverIcon from './assets/cart-hover-icon.svg';
 import cartIcon from './assets/cart-icon.svg';
 import heartHoverIcon from './assets/heart-hover-icon.svg';
@@ -10,22 +11,57 @@ import noProducts from './assets/no-products.png';
 export const ProductsPart = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedFilter, setSelectedFilter] = useState('');
+  const [selectedSort, setSelectedSort] = useState('Default sorting');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleFilterClick = (filter: string) => {
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
+  const handleDropdownToggle = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleSortOptionClick = (sortOption: string) => {
+    setSelectedSort(sortOption);
+    setDropdownOpen(false);
+  };
+
+  const handleFilterClick = (filter: React.SetStateAction<string>) => {
     setSelectedFilter(filter);
   };
 
   const getFilteredProducts = () => {
     let filtered = [...products];
 
+    // Filter the products based on the selected category
     if (selectedCategory !== 'All') {
       filtered = filtered.filter((product) => product.category.includes(selectedCategory));
     }
 
+    // Filter the products based on the selected filter
     if (selectedFilter === 'New Arrival') {
       filtered = filtered.filter((product) => product.newArrival);
     } else if (selectedFilter === 'Sale') {
       filtered = filtered.filter((product) => product.sale);
+    }
+
+    // Sort the products based on selectedSort
+    if (selectedSort === 'Price Up') {
+      filtered.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+    } else if (selectedSort === 'Price Down') {
+      filtered.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     }
 
     return filtered;
@@ -33,7 +69,7 @@ export const ProductsPart = () => {
 
   const filteredProducts = getFilteredProducts();
 
-  const handleCategoryClick = (category: string) => {
+  const handleCategoryClick = (category: React.SetStateAction<string>) => {
     setSelectedCategory(category);
   };
 
@@ -44,7 +80,7 @@ export const ProductsPart = () => {
     return products.filter((product) => product.category.includes(category)).length;
   };
 
-  const calculateSalePrice = (price: string, discountPercentage: number): string => {
+  const calculateSalePrice = (price: string, discountPercentage: number) => {
     // Calculate the new price based on the discount percentage
     const newPrice = parseFloat(price) * (1 - discountPercentage);
     return newPrice.toFixed(2); // Round the new price to 2 decimal places
@@ -195,27 +231,50 @@ export const ProductsPart = () => {
 
       <div className="main">
         <div className="products-top">
-          <button
-            className={`product-filter ${selectedFilter === '' ? 'active' : ''}`}
-            onClick={() => handleFilterClick('')}
-          >
-            All Plants
-          </button>
-          <button
-            className={`product-filter ${selectedFilter === 'New Arrival' ? 'active' : ''}`}
-            onClick={() => handleFilterClick('New Arrival')}
-          >
-            New Arrivals
-          </button>
-          <button
-            className={`product-filter ${selectedFilter === 'Sale' ? 'active' : ''}`}
-            onClick={() => handleFilterClick('Sale')}
-          >
-            Sale
-          </button>
+          <div className="filters">
+            <button
+              className={`product-filter ${selectedFilter === '' ? 'active' : ''}`}
+              onClick={() => handleFilterClick('')}
+            >
+              All Plants
+            </button>
+            <button
+              className={`product-filter ${selectedFilter === 'New Arrival' ? 'active' : ''}`}
+              onClick={() => handleFilterClick('New Arrival')}
+            >
+              New Arrivals
+            </button>
+            <button
+              className={`product-filter ${selectedFilter === 'Sale' ? 'active' : ''}`}
+              onClick={() => handleFilterClick('Sale')}
+            >
+              Sale
+            </button>
+          </div>
+          <div className="sort-by">
+            <p>Sort by:</p>
+            <div className="dropdown" ref={dropdownRef}>
+              <button
+                className={`dropdown-button ${dropdownOpen ? 'open' : ''}`}
+                onClick={handleDropdownToggle}
+              >
+                {selectedSort}
+                <img
+                  src={arrowDownIcon}
+                  alt="Toggle Dropdown"
+                  className={`dropdown-icon ${dropdownOpen ? 'open' : ''}`}
+                />
+              </button>
+              <div className={`dropdown-content ${dropdownOpen ? 'open' : ''}`}>
+                <button onClick={() => handleSortOptionClick('Default sorting')}>Default sorting</button>
+                <button onClick={() => handleSortOptionClick('Price Up')}>Price Up</button>
+                <button onClick={() => handleSortOptionClick('Price Down')}>Price Down</button>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="products">
-          {/*Display noProducts image when there is no products */}
+          {/*Display noProducts image when there is no products to show */}
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product, index) => (
               <div className="product-box" key={index}>
