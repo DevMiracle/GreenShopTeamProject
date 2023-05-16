@@ -1,11 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Header } from './shared/Header/Header';
+import React from 'react';
 
 function App() {
   return (
     <>
-      
+      <Header />
     </>
   );
 }

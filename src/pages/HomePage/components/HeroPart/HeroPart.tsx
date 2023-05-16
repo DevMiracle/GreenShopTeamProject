@@ -1,4 +1,4 @@
-import './HeroPart.scss'
+import './HeroPart.scss';
 
 // export const HeroPart = () => {
 //     return (
