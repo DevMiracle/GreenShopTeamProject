@@ -1,4 +1,5 @@
 @charset 'UTF-8';
+@import "/src/variables";
 
 /* Slider */
 // .slick-loading .slick-list
@@ -201,5 +202,5 @@
 .slick-dots li.slick-active button:before
 {
     opacity: .75;
-    color: #46A358;
+    color: $green;
 }
