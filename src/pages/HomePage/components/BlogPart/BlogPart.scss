@@ -7,7 +7,7 @@
     font-size: 30px;
     line-height: 16px;
     text-align: center;
-    color: $header-color;
+    color: $dark-gray;
   }
   .title {
     display: flex;
@@ -15,7 +15,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
-    color: $main-text-color;
+    color: $gray;
   }
 
   .blog_cards {
@@ -25,7 +25,7 @@
     justify-content: center;
 
     .card {
-      background-color: $card-background;
+      background-color: $off-white;
       width: 268px;
       height: 362.17px;
       .main {
@@ -37,16 +37,16 @@
           font-weight: 500;
           font-size: 14px;
           line-height: 16px;
-          color: $green-color;
+          color: $green;
         }
         .card_header {
-          color: $header-color;
+          color: $dark-gray;
           font-weight: 700;
           font-size: 20px;
           line-height: 26px;
         }
         .card_main_text {
-          color: $main-text-color;
+          color: $gray;
           margin-top: 4px;
           font-weight: 400;
           font-size: 14px;
@@ -57,7 +57,7 @@
 
           a {
             text-decoration: none;
-            color: $header-color;
+            color: $dark-gray;
             font-weight: 500;
             font-size: 14px;
             line-height: 16px;
