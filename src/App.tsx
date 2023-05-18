@@ -1,11 +1,13 @@
 import './App.css';
+import { Header } from './shared/Header/Header';
+import Footer from './shared/Footer/Footer';
 import HomePage from './pages/HomePage/HomePage';
 import React from 'react';
-import Footer from './shared/Footer/Footer';
 
 function App() {
   return (
     <>
+      <Header />
       <HomePage />
       <Footer />
     </>

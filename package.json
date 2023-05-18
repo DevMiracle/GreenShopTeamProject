@@ -26,6 +26,7 @@
     "sass": "^1.62.1",
     "slick-carousel": "^1.8.1",
     "typescript": "^4.9.5",
+    "use-selector": "^3.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

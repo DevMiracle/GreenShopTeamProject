@@ -1,0 +1,236 @@
+@import "/src/variables";
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 83%;
+  margin: 0 auto;
+  padding-top: 25px;
+  &::after {
+    content: '';
+    width: 83%;
+    height: 0.3px;
+    background-color: $light-green;
+    position: absolute;
+    top: 78px;
+  }
+  #check {
+    display: none;
+  }
+  .checkBurgerMenu {
+    img {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+  }
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .logoWord {
+      margin-bottom: 6px;
+      .greenWord {
+        padding-left: 5px;
+        text-decoration: none;
+        color: $green;
+        font-family: 'Cera Pro';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .mainNavigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    .navMenu {
+      text-decoration: none;
+      font-family: 'Cera Pro';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: $dark-gray;
+      position: relative;
+      padding: 0 1px;
+      &:hover {
+        font-family: 'Cera Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        color: $dark-gray;
+        &::after {
+          width: 100%;
+        }
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        background-color: $green;
+        bottom: -25px;
+        left: 0;
+        transition: 0.4s;
+      }
+    }
+  }
+  .headerControl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    .shoppingBox {
+      .shoppingBoxButton {
+        text-decoration: none;
+        position: relative;
+        .shoppingText {
+          font-family: 'Cera Pro';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 10px;
+          color: $white;
+          background-color:$green;
+          border-radius: 50%;
+          width: 12px;
+          height: 12px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          border: 2px solid $white;
+          top: -7px;
+          left: 15px;
+        }
+      }
+    }
+    .loginBox {
+      .loginBoxButton {
+        text-decoration: none;
+        .loginButton {
+          background: $green;
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          border: none;
+          padding: 7px 18px;
+          cursor: pointer;
+          .loginText {
+            font-family: 'Cera Pro';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .headerContainer::after {
+    width: 100%;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1440px) {
+  .headerContainer {
+    width: 100%;
+    padding: 25px 40px 0px 40px;
+
+    .mainNavigation {
+      gap: 40px;
+    }
+
+    .headerControl {
+      gap: 20px;
+    }
+  }
+}
+
+@media (max-width: 901px) {
+  .headerContainer {
+    width: 100%;
+    padding: 25px 20px 0px 20px;
+
+    .mainNavigation {
+      display: block;
+      position: absolute;
+      top: 78px;
+      left: -70%;
+      width: 45%;
+      background-color: $green;
+      height: auto;
+      transition: 1s linear;
+
+      .navMenu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 40px auto;
+        color: $white;
+        width: 79px;
+
+        &:after {
+          background-color: $white;
+          bottom: -15px;
+        }
+      }
+    }
+
+    #check:checked ~ .mainNavigation {
+      left: 0;
+    }
+  }
+}
+
+@media (min-width: 901px) {
+  .checkBurgerMenu {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .headerContainer {
+    padding: 25px 10px 0 10px;
+
+    .logo {
+      .logoImg img {
+        width: 25px;
+        height: 25px;
+      }
+
+      .logoWord .greenWord {
+        font-size: 14px;
+        padding-left: 3px;
+      }
+    }
+
+    .headerControl {
+      gap: 15px;
+
+      .loginBox .loginBoxButton .loginButton {
+        padding: 7px 15px;
+
+        img {
+          height: 16px;
+          width: 16px;
+        }
+
+        .loginText {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
