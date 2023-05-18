@@ -5,14 +5,14 @@ export const Header = () => {
   return (
     <header>
       <div className="headerContainer">
-          <input type="checkbox" id="check" />
-          <label htmlFor="check" className="checkBurgerMenu">
-            <img src="./images/burger.svg" alt="" />
-          </label>
+        <input type="checkbox" id="check" />
+        <label htmlFor="check" className="checkBurgerMenu">
+          <img src="./images/burger.svg" alt="" />
+        </label>
         <div className="logo">
           <div className="logoImg">
             <Link to="">
-              <img  src="./images/Vector (9).svg" alt="" />
+              <img src="./images/Vector (9).svg" alt="" />
             </Link>
           </div>
           <div className="logoWord">
