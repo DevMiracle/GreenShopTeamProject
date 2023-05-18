@@ -13,7 +13,6 @@ import twitter from './assets/Twitter.png';
 import union from './assets/Union.png';
 import watering from './assets/watering.png';
 
-// Uncomment this when you start to work
 export const Footer = () => {
   return (
     <>
