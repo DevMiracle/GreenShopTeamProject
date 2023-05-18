@@ -1,20 +1,19 @@
-import "./PlantCard.scss";
-import left_img from "./assets/LeftCardImage.png";
-import right_img from "./assets/RightCardImage.png";
-import arrow from "./assets/Arrow - Right.svg";
+import './PlantCard.scss';
+import arrow from './assets/Arrow - Right.svg';
+import left_img from './assets/LeftCardImage.png';
+import right_img from './assets/RightCardImage.png';
 
 export const PlantCard = () => {
   const cards = [
     {
       image: left_img,
-      header: "Summer cactus & succulents",
-      title:
-        "We are an online plant shop offering a wide range of cheap and trendy plants",
+      header: 'Summer cactus & succulents',
+      title: 'We are an online plant shop offering a wide range of cheap and trendy plants',
     },
     {
       image: right_img,
-      header: "Tropical Treasures",
-      title: "Spruce up your space with our affordable and stylish plants.",
+      header: 'Tropical Treasures',
+      title: 'Spruce up your space with our affordable and stylish plants.',
     },
   ];
 
