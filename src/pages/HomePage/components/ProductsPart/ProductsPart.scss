@@ -1,0 +1,329 @@
+@import '/src/variables';
+
+.products-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 50px;
+  justify-content: center;
+  //   align-items: center;
+  padding-top: 46px;
+  margin: 0px 120px;
+  .categories {
+    background-color: $off-white;
+    h4 {
+      font-family: 'Cera Pro';
+      font-weight: 700;
+      font-size: 18px;
+
+      color: $dark-gray;
+      margin: 0;
+      padding-top: 14px;
+      padding-left: 18px;
+    }
+    .categories-list {
+      display: flex;
+      flex-direction: column;
+      margin: 24px;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 40px;
+      white-space: nowrap;
+      .category-button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover {
+          color: $green;
+        }
+      }
+      .category-button.selected {
+        color: $green;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .main {
+    .products-top {
+      display: flex;
+      justify-content: space-between;
+      .filters {
+        font-family: 'Cera Pro';
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 16px;
+        /* identical to box height, or 107% */
+
+        display: flex;
+        gap: 40px;
+        white-space: nowrap;
+        .product-filter {
+          color: $dark-gray;
+          text-decoration: none;
+          background: none;
+          color: inherit;
+          border: none;
+          padding: 0;
+          font: inherit;
+          cursor: pointer;
+          outline: inherit;
+        }
+        .active {
+          font-weight: 700;
+          font-size: 15px;
+          line-height: 16px;
+          /* identical to box height, or 107% */
+
+          color: $green;
+          text-decoration: underline;
+          text-decoration-thickness: 3px;
+          text-underline-offset: 7px;
+        }
+        h5 {
+          padding-left: 400px;
+          margin: 0;
+        }
+      }
+      .sort-by {
+        display: flex;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 16px;
+        padding-left: 100px;
+
+        p {
+          margin: 0;
+          white-space: nowrap;
+        }
+
+        .dropdown {
+          position: relative;
+
+          .dropdown-button {
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            width: 120px;
+            margin-left: 8px;
+            cursor: pointer;
+            .dropdown-icon {
+              margin-left: 8px;
+              transition: transform 0.2s;
+          
+              &.open {
+                transform: rotate(-90deg);
+              }
+            }
+          }
+
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 99;
+
+            &.open {
+              display: block;
+            }
+
+            button {
+              background: none;
+              border: none;
+              padding: 5px 10px;
+              width: 100%;
+              text-align: left;
+              cursor: pointer;
+
+              &:hover {
+                background-color: #f4f4f4;
+              }
+
+              &.selected {
+                background-color: #f4f4f4;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 33px;
+      row-gap: 70px;
+      padding-top: 31px;
+
+      .product-box {
+        font-family: 'Cera Pro';
+
+        .product-border {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 258px;
+          height: 300px;
+          background-color: $off-white;
+          cursor: pointer;
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+          }
+
+          &:hover:before {
+            background-color: $green;
+          }
+
+          &:hover {
+            .product-image {
+              transform: translateY(-5px); /* Adjust the value as needed */
+            }
+
+            .product-icons {
+              opacity: 1;
+            }
+          }
+
+          .product-image {
+            position: relative;
+            z-index: 1;
+          }
+          .discount-label {
+            position: absolute;
+            top: 14px;
+            left: -7px;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: white;
+            padding: 4px;
+            padding-left: 10px;
+            background-color: $green;
+            box-shadow: 0 1.8px 3.2px rgba(0, 0, 0, 0.1), 0 1.7px 10.3px rgba(0, 0, 0, 0.065),
+              0 3.5px 10px rgba(0, 0, 0, 0.05), 0 7.5px 7px rgba(0, 0, 0, 0.05);
+          }
+
+          .product-icons {
+            display: flex;
+            position: absolute;
+            left: 0;
+            right: 0;
+            transform: translate(0%, 275%);
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+            //Separate icons from each other
+            justify-content: space-evenly;
+            margin: 0 70px; //Limit the icon box from the left and from the right
+
+            .add-to-button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 4px;
+              cursor: pointer;
+              margin: 3px;
+              background: #ffffff;
+              width: 35px;
+              height: 35px;
+
+              .default-icon {
+                display: flex;
+              }
+
+              .hover-icon {
+                display: none;
+              }
+
+              &:hover {
+                .default-icon {
+                  display: none;
+                }
+
+                .hover-icon {
+                  display: flex;
+                }
+              }
+            }
+          }
+        }
+
+        .product-name {
+          display: flex;
+          align-items: center;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 16px;
+          /* identical to box height, or 100% */
+
+          color: $dark-gray;
+
+          margin: 0;
+          padding-top: 12px;
+          padding-bottom: 6px;
+          cursor: pointer;
+        }
+
+        .new-arrival-label {
+          background-color: rgb(0, 94, 255);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 3px;
+          box-shadow: 0 1.8px 3.2px rgba(0, 0, 0, 0.1), 0 1.7px 10.3px rgba(0, 0, 0, 0.065),
+            0 3.5px 10px rgba(0, 0, 0, 0.05), 0 7.5px 7px rgba(0, 0, 0, 0.05);
+          margin-left: 10px;
+          padding: 2px 6px;
+          .new {
+            text-transform: uppercase;
+            color: white;
+            font-size: 12px;
+          }
+        }
+
+        .price,
+        .new-price {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 16px;
+          /* identical to box height, or 89% */
+
+          color: $green;
+        }
+        .old-price {
+          text-decoration: line-through;
+          color: #a5a5a5;
+          margin-left: 15px;
+          font-weight: 400;
+        }
+      }
+      .no-products {
+        margin: 50px;
+        .no-products-image {
+          max-width: 50vh;
+          display: block;
+        }
+      }
+    }
+  }
+}
