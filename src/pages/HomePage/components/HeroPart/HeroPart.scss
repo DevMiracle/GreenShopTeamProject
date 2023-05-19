@@ -4,20 +4,18 @@ html {
   margin: 0;
 }
 
-.slide {
-  background: linear-gradient(
-    97.77deg,
-    rgba(245, 245, 245, 0.5) -23.46%,
-    rgba(245, 245, 245, 0.5) 107.51%
-  );
-  .wrapper {
+.hero-slide {
+  margin-top: 20px;
+  background: linear-gradient(97.77deg, rgba(245, 245, 245, 0.5) -23.46%, rgba(245, 245, 245, 0.5) 107.51%);
+  .hero-wrapper {
     height: 518px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     .left-side {
       margin-left: 40px;
-      .header {
+      .hero-header {
         margin-bottom: -7px;
         text-transform: uppercase;
         font-weight: 500;
@@ -37,7 +35,7 @@ html {
           }
         }
       }
-      .footer {
+      .hero-footer {
         margin-top: -65px;
         color: $gray;
         font-style: normal;
@@ -60,24 +58,24 @@ html {
 }
 
 @media (max-width: 426px) {
-  .slide {
-    .wrapper .left-side .shop-button {
+  .hero-slide {
+    .hero-wrapper .left-side .shop-button {
       margin-top: 10px;
     }
-    .wrapper {
+    .hero-wrapper {
       flex-wrap: wrap;
     }
-    .wrapper .left-side {
+    .hero-wrapper .left-side {
       margin-left: 10px;
     }
-    .wrapper .left-side .header {
+    .hero-wrapper .left-side .hero-header {
       font-size: 15px;
       margin-bottom: 15px;
     }
-    .wrapper .left-side .slogan {
+    .hero-wrapper .left-side .slogan {
       font-size: 35px;
     }
-    .wrapper .left-side .footer {
+    .hero-wrapper .left-side .hero-footer {
       margin-top: -35px;
       font-size: 12px;
     }
@@ -89,29 +87,29 @@ html {
 }
 
 @media (max-width: 1025px) {
-  .slide {
-    .wrapper .left-side .shop-button {
+  .hero-slide {
+    .hero-wrapper .left-side .shop-button {
       margin-top: 10px;
     }
-    .wrapper {
+    .hero-wrapper {
       display: flex;
       flex-wrap: nowrap;
     }
-    .wrapper .left-side {
+    .hero-wrapper .left-side {
       margin-left: 10px;
     }
-    .wrapper .left-side .header {
+    .hero-wrapper .left-side .hero-header {
       font-size: 15px;
       margin-bottom: 15px;
     }
-    .wrapper .left-side .slogan {
+    .hero-wrapper .left-side .slogan {
       font-size: 35px;
     }
-    .wrapper .left-side .footer {
+    .hero-wrapper .left-side .hero-footer {
       margin-top: -35px;
       font-size: 12px;
     }
-    .wrapper .right-side {
+    .hero-wrapper .right-side {
       picture {
         img {
           width: 85%;
@@ -122,29 +120,29 @@ html {
 }
 
 @media (max-width: 1120px) {
-  .slide {
-    .wrapper .left-side .shop-button {
+  .hero-slide {
+    .hero-wrapper .left-side .shop-button {
       margin-top: 10px;
     }
-    .wrapper {
+    .hero-wrapper {
       display: flex;
       flex-wrap: nowrap;
     }
-    .wrapper .left-side {
+    .hero-wrapper .left-side {
       margin-left: 10px;
     }
-    .wrapper .left-side .header {
+    .hero-wrapper .left-side .hero-header {
       font-size: 15px;
       margin-bottom: 15px;
     }
-    .wrapper .left-side .slogan {
+    .hero-wrapper .left-side .slogan {
       font-size: 35px;
     }
-    .wrapper .left-side .footer {
+    .hero-wrapper .left-side .hero-footer {
       margin-top: -35px;
       font-size: 12px;
     }
-    .wrapper .right-side {
+    .hero-wrapper .right-side {
       picture {
         img {
           width: 85%;
