@@ -52,6 +52,36 @@
     .super-sale-banner-image {
       width: 100%;
     }
+    .price-range-slider-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      margin-left: 30px;
+      .price-range-distance-box {
+        display: flex;
+        .price-range-distance {
+          margin: 0;
+          color: $green;
+          margin-left: 5px;
+        }
+      }
+      .reset-button {
+        color: $white;
+        background-color: $green;
+        border: none;
+        padding: 10px;
+        max-width: 90px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 15px;
+      }
+    }
+    .banner-container {
+      padding-top: 30px;
+    }
   }
 
   .main {

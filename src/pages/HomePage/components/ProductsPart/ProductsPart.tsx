@@ -1,5 +1,6 @@
 import './ProductsPart.scss';
 import { products } from './ProductsData';
+import MinimumDistanceSlider from './MinimumDistanceSlider/MinimumDistanceSlider';
 import React, { useEffect, useRef, useState } from 'react';
 import arrowDownIcon from './assets/arrowhead-down-icon.svg';
 import cartHoverIcon from './assets/cart-hover-icon.svg';
@@ -17,6 +18,13 @@ export const ProductsPart = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 9;
+  // Initialize minPrice and maxPrice with the minimum and maximum possible prices
+  const initialMinPrice = Math.min(...products.map((product) => parseFloat(product.price) - 1));
+  const initialMaxPrice = Math.max(...products.map((product) => parseFloat(product.price) + 1));
+
+  // Set the initial values in the state
+  const [minPrice, setMinPrice] = useState(initialMinPrice);
+  const [maxPrice, setMaxPrice] = useState(initialMaxPrice);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -45,6 +53,19 @@ export const ProductsPart = () => {
     setSelectedFilter(filter);
   };
 
+  const handleSliderChange = (values: number[]) => {
+    setMinPrice(values[0]);
+    setMaxPrice(values[1]);
+  };
+
+  const handleResetFilters = () => {
+    setSelectedCategory('All');
+    setSelectedFilter('');
+    setSelectedSort('Default sorting');
+    setMinPrice(initialMinPrice);
+    setMaxPrice(initialMaxPrice);
+  };
+
   const getFilteredProducts = () => {
     let filtered = [...products];
 
@@ -59,6 +80,12 @@ export const ProductsPart = () => {
     } else if (selectedFilter === 'Sale') {
       filtered = filtered.filter((product) => product.sale);
     }
+
+    // Filter the products based on the price range
+    filtered = filtered.filter((product) => {
+      const price = parseFloat(product.price);
+      return price >= minPrice && price <= maxPrice;
+    });
 
     // Sort the products based on selectedSort
     if (selectedSort === 'Price Up') {
@@ -245,7 +272,26 @@ export const ProductsPart = () => {
               <span className="category-count">({getCategoryItemCount('Accessories')})</span>
             </button>
           </div>
-          <img className="super-sale-banner-image" src={superSale} alt="" />
+          <h4>Price Range</h4>
+          <div className="price-range-slider-container">
+            <MinimumDistanceSlider
+              minPrice={minPrice}
+              maxPrice={maxPrice}
+              onSliderChange={handleSliderChange}
+            />
+            <span className="price-range-distance-box">
+              Price:
+              <p className="price-range-distance">
+                {minPrice}$ - {maxPrice}$
+              </p>
+            </span>
+            <button className="reset-button" onClick={handleResetFilters}>
+              Reset All
+            </button>
+          </div>
+          <div className="banner-container">
+            <img className="super-sale-banner-image" src={superSale} alt="" />
+          </div>
         </div>
 
         <div className="main">

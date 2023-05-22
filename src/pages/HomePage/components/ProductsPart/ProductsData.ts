@@ -11,6 +11,8 @@ import product9 from './assets/product-9.png';
 import product10 from './assets/product-10.png';
 import product11 from './assets/product-11.png';
 import product12 from './assets/product-12.png';
+import product13 from './assets/product-13.png';
+import product14 from './assets/product-14.png';
 
 export const products = [
   {
@@ -100,7 +102,7 @@ export const products = [
     discountPercentage: 0.15,
     image: product10,
     category: ['Small Plants', 'House Plants'],
-    newArrival: true,
+    newArrival: false,
     sale: true,
   },
   {
@@ -115,9 +117,27 @@ export const products = [
   {
     name: 'Spider Plant',
     price: '49.00',
-    discountPercentage: 0,
+    discountPercentage: 0.20,
     image: product12,
     category: ['Small Plants', 'Potter Plants'],
+    newArrival: false,
+    sale: true,
+  },
+  {
+    name: 'Zebra Cactus',
+    price: '69.00',
+    discountPercentage: 0.1,
+    image: product13,
+    category: ['Succulents'],
+    newArrival: false,
+    sale: false,
+  },
+  {
+    name: 'English Ivy',
+    price: '89.00',
+    discountPercentage: 0.2,
+    image: product14,
+    category: ['Gardening', 'House Plants'],
     newArrival: true,
     sale: false,
   },
