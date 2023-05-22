@@ -49,6 +49,9 @@
         font-weight: 700;
       }
     }
+    .super-sale-banner-image {
+      width: 100%;
+    }
   }
 
   .main {
@@ -65,6 +68,7 @@
         display: flex;
         gap: 40px;
         white-space: nowrap;
+
         .product-filter {
           color: $dark-gray;
           text-decoration: none;
@@ -75,7 +79,27 @@
           font: inherit;
           cursor: pointer;
           outline: inherit;
+          position: relative;
+
+          &:hover {
+            font-weight: 700;
+            color: $green;
+            &::after {
+              width: 100%;
+            }
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: $green;
+            bottom: -6px;
+            left: 0;
+            transition: 0.4s;
+          }
         }
+
         .active {
           font-weight: 700;
           font-size: 15px;
@@ -87,6 +111,7 @@
           text-decoration-thickness: 3px;
           text-underline-offset: 7px;
         }
+
         h5 {
           padding-left: 400px;
           margin: 0;
@@ -118,7 +143,7 @@
             .dropdown-icon {
               margin-left: 8px;
               transition: transform 0.2s;
-          
+
               &.open {
                 transform: rotate(-90deg);
               }
@@ -207,6 +232,8 @@
           .product-image {
             position: relative;
             z-index: 1;
+            max-width: 300px;
+            max-height: 300px;
           }
           .discount-label {
             position: absolute;
@@ -323,6 +350,33 @@
           max-width: 50vh;
           display: block;
         }
+      }
+    }
+  }
+}
+.pagination-box {
+  display: flex;
+  .pagination {
+    display: flex;
+    gap: 10px;
+    margin: 90px 120px 0 auto;
+    .pagination-button {
+      font-family: 'Cera Pro';
+      width: 35px;
+      height: 35px;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid #e5e5e5;
+      color: $dark-gray;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 16px;
+      &.active {
+        font-family: 'Cera Pro';
+        font-weight: 700;
+        background-color: $green;
+        color: $white;
       }
     }
   }

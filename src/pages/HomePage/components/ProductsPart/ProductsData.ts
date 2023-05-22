@@ -7,6 +7,10 @@ import product6 from './assets/product-6.png';
 import product7 from './assets/product-7.png';
 import product8 from './assets/product-8.png';
 import product9 from './assets/product-9.png';
+// eslint-disable-next-line sort-imports-es6-autofix/sort-imports-es6
+import product10 from './assets/product-10.png';
+import product11 from './assets/product-11.png';
+import product12 from './assets/product-12.png';
 
 export const products = [
   {
@@ -87,6 +91,33 @@ export const products = [
     discountPercentage: 0,
     image: product9,
     category: ['Seeds'],
+    newArrival: true,
+    sale: false,
+  },
+  {
+    name: 'Calathea Orbifolia',
+    price: '149.00',
+    discountPercentage: 0.15,
+    image: product10,
+    category: ['Small Plants', 'House Plants'],
+    newArrival: true,
+    sale: true,
+  },
+  {
+    name: 'Snake Plant',
+    price: '79.00',
+    discountPercentage: 0,
+    image: product11,
+    category: ['Big Plants'],
+    newArrival: true,
+    sale: false,
+  },
+  {
+    name: 'Spider Plant',
+    price: '49.00',
+    discountPercentage: 0,
+    image: product12,
+    category: ['Small Plants', 'Potter Plants'],
     newArrival: true,
     sale: false,
   },
