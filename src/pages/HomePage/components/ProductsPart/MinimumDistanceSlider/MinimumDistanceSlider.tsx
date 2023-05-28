@@ -1,3 +1,4 @@
+import '../ProductsPart';
 import { products } from '../ProductsData';
 import Box from '@mui/material/Box';
 import React, { useState } from 'react';
@@ -7,6 +8,8 @@ function valuetext(value: number) {
   return `${value}°C`;
 }
 
+const handleResetFilters = () => {};
+
 interface MinimumDistanceSliderProps {
   minPrice: number;
   maxPrice: number;
@@ -14,17 +17,24 @@ interface MinimumDistanceSliderProps {
 }
 
 const MinimumDistanceSlider: React.FC<MinimumDistanceSliderProps> = ({ onSliderChange }) => {
-  const [value1, setValue1] = useState<number[]>([70, 180]);
   // Initialize minPrice and maxPrice with the minimum and maximum possible prices
   const initialMinPrice = Math.min(
-    ...products.map((product: { price: string }) => parseFloat(product.price) - 1),
+    ...products.map((product) => {
+      const minSizePrice = Math.min(...product.sizes.map((size) => parseFloat(size.price)));
+      return +(minSizePrice * (1 - product.discountPercentage)).toFixed(2);
+    }),
   );
   const initialMaxPrice = Math.max(
-    ...products.map((product: { price: string }) => parseFloat(product.price)),
+    ...products.map((product) => {
+      const maxSizePrice = Math.max(...product.sizes.map((size) => parseFloat(size.price)));
+      return +(maxSizePrice * (1 - product.discountPercentage)).toFixed(2);
+    }),
   );
+
   // Set the initial values in the state
   const [minDistance] = useState(initialMinPrice);
   const [maxDistance] = useState(initialMaxPrice);
+  const [value1, setValue1] = useState<number[]>([minDistance, maxDistance]);
 
   const handleChange1 = (event: Event, newValue: number | number[], activeThumb: number) => {
     if (!Array.isArray(newValue)) {

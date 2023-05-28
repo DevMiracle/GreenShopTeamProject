@@ -1,4 +1,5 @@
 import './ProductsPart.scss';
+import { Link } from 'react-router-dom';
 import { products } from './ProductsData';
 import MinimumDistanceSlider from './MinimumDistanceSlider/MinimumDistanceSlider';
 import React, { useEffect, useRef, useState } from 'react';
@@ -19,8 +20,8 @@ export const ProductsPart = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 9;
   // Initialize minPrice and maxPrice with the minimum and maximum possible prices
-  const initialMinPrice = Math.min(...products.map((product) => parseFloat(product.price) - 1));
-  const initialMaxPrice = Math.max(...products.map((product) => parseFloat(product.price) + 1));
+  const initialMinPrice = Math.min(...products.map((product) => parseFloat(product.sizes[0].price) - 1));
+  const initialMaxPrice = Math.max(...products.map((product) => parseFloat(product.sizes[0].price) + 1));
 
   // Set the initial values in the state
   const [minPrice, setMinPrice] = useState(initialMinPrice);
@@ -66,6 +67,12 @@ export const ProductsPart = () => {
     setMaxPrice(initialMaxPrice);
   };
 
+  const calculateSalePrice = (price: string, discountPercentage: number) => {
+    // Calculate the new price based on the discount percentage
+    const newPrice = parseFloat(price) * (1 - discountPercentage);
+    return newPrice.toFixed(2); // Round the new price to 2 decimal places
+  };
+
   const getFilteredProducts = () => {
     let filtered = [...products];
 
@@ -83,15 +90,25 @@ export const ProductsPart = () => {
 
     // Filter the products based on the price range
     filtered = filtered.filter((product) => {
-      const price = parseFloat(product.price);
-      return price >= minPrice && price <= maxPrice;
+      const price = product.sale
+        ? calculateSalePrice(product.sizes[0].price, product.discountPercentage)
+        : product.sizes[0].price;
+      return parseFloat(price) >= minPrice && parseFloat(price) <= maxPrice;
     });
 
     // Sort the products based on selectedSort
     if (selectedSort === 'Price Up') {
-      filtered.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      filtered.sort((a, b) => {
+        const priceA = parseFloat(a.sizes[0].price);
+        const priceB = parseFloat(b.sizes[0].price);
+        return priceA - priceB;
+      });
     } else if (selectedSort === 'Price Down') {
-      filtered.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      filtered.sort((a, b) => {
+        const priceA = parseFloat(a.sizes[0].price);
+        const priceB = parseFloat(b.sizes[0].price);
+        return priceB - priceA;
+      });
     }
 
     const indexOfLastProduct = currentPage * productsPerPage;
@@ -111,12 +128,6 @@ export const ProductsPart = () => {
       return products.length;
     }
     return products.filter((product) => product.category.includes(category)).length;
-  };
-
-  const calculateSalePrice = (price: string, discountPercentage: number) => {
-    // Calculate the new price based on the discount percentage
-    const newPrice = parseFloat(price) * (1 - discountPercentage);
-    return newPrice.toFixed(2); // Round the new price to 2 decimal places
   };
 
   const handlePageChange = (pageNumber: React.SetStateAction<number>) => {
@@ -339,50 +350,54 @@ export const ProductsPart = () => {
             </div>
           </div>
           <div className="products">
-            {/*Display noProducts image when there is no products to show */}
+            {/*Display noProducts image when there are no products to show */}
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product, index) => (
-                <div className="product-box" key={index}>
-                  <div className="product-border">
-                    {/* Display 'sale' on top of the products */}
-                    {product.sale && (
-                      <div className="discount-label">{`${Math.floor(
-                        product.discountPercentage * 100,
-                      )}% off`}</div>
-                    )}
-                    <div className="product-icons">
-                      <div className="add-to-button">
-                        <img src={cartIcon} alt="Add to Cart" className="default-icon" />
-                        <img src={cartHoverIcon} alt="Add to Cart" className="hover-icon" />
+                <Link key={index} to={`/product/${product.id}`} className="product-link-to">
+                  <div className="product-box" key={index}>
+                    <div className="product-border">
+                      {/* Display 'sale' on top of the products */}
+                      {product.sale && (
+                        <div className="discount-label">{`${Math.floor(
+                          product.discountPercentage * 100,
+                        )}% off`}</div>
+                      )}
+                      <div className="product-icons">
+                        <div className="add-to-button">
+                          <img src={cartIcon} alt="Add to Cart" className="default-icon" />
+                          <img src={cartHoverIcon} alt="Add to Cart" className="hover-icon" />
+                        </div>
+                        <div className="add-to-button">
+                          <img src={heartIcon} alt="Add to Favorites" className="default-icon" />
+                          <img src={heartHoverIcon} alt="Add to Favorites" className="hover-icon" />
+                        </div>
                       </div>
-                      <div className="add-to-button">
-                        <img src={heartIcon} alt="Add to Favorites" className="default-icon" />
-                        <img src={heartHoverIcon} alt="Add to Favorites" className="hover-icon" />
-                      </div>
+                      <img src={product.photos[0]} alt="" className="product-image" />
                     </div>
-                    <img src={product.image} alt="" className="product-image" />
+                    <span className="product-name">
+                      {product.name}
+                      {/* Display 'New' near the product's name */}
+                      {product.newArrival && (
+                        <div className="new-arrival-label">
+                          <span className="new">New</span>
+                        </div>
+                      )}
+                    </span>
+                    {product.sale ? (
+                      // Check if the product is on sale
+                      <div>
+                        <span className="new-price">
+                          ${calculateSalePrice(product.sizes[0].price, product.discountPercentage)}
+                        </span>{' '}
+                        {/* Display the new price */}
+                        <span className="old-price">${product.sizes[0].price}</span>{' '}
+                        {/* Display the old price */}
+                      </div>
+                    ) : (
+                      <span className="price">${product.sizes[0].price}</span> // Display the regular price
+                    )}
                   </div>
-                  <span className="product-name">
-                    {product.name}
-                    {/* Display 'New' near the product's name */}
-                    {product.newArrival && (
-                      <div className="new-arrival-label">
-                        <span className="new">New</span>
-                      </div>
-                    )}
-                  </span>
-                  {product.sale ? ( // Check if the product is on sale
-                    <div>
-                      <span className="new-price">
-                        ${calculateSalePrice(product.price, product.discountPercentage)}
-                      </span>{' '}
-                      {/* Display the new price */}
-                      <span className="old-price">${product.price}</span> {/* Display the old price */}
-                    </div>
-                  ) : (
-                    <span className="price">${product.price}</span> // Display the regular price
-                  )}
-                </div>
+                </Link>
               ))
             ) : (
               <div className="no-products">
