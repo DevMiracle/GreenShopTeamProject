@@ -34,21 +34,21 @@ const MinimumDistanceSlider: React.FC<MinimumDistanceSliderProps> = ({ onSliderC
   // Set the initial values in the state
   const [minDistance] = useState(initialMinPrice);
   const [maxDistance] = useState(initialMaxPrice);
-  const [value1, setValue1] = useState<number[]>([minDistance, maxDistance]);
+  const [value, setValue] = useState<number[]>([minDistance, maxDistance]);
 
-  const handleChange1 = (event: Event, newValue: number | number[], activeThumb: number) => {
+  const handleChange = (event: Event, newValue: number | number[], activeThumb: number) => {
     if (!Array.isArray(newValue)) {
       return;
     }
 
     if (activeThumb === 0) {
-      setValue1([Math.min(newValue[0], value1[1] - minDistance), value1[1]]);
+      setValue([Math.min(newValue[0], value[1] - minDistance), value[1]]);
     } else {
-      setValue1([value1[0], Math.max(newValue[1], value1[0] + minDistance)]);
+      setValue([value[0], Math.max(newValue[1], value[0] + minDistance)]);
     }
 
     // Invoke the callback function with the updated slider values
-    onSliderChange(value1);
+    onSliderChange(value);
   };
 
   return (
@@ -76,9 +76,9 @@ const MinimumDistanceSlider: React.FC<MinimumDistanceSliderProps> = ({ onSliderC
         getAriaLabel={() => 'Minimum distance'}
         min={minDistance}
         max={maxDistance}
-        value={value1}
+        value={value}
         defaultValue={2}
-        onChange={handleChange1}
+        onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
         disableSwap

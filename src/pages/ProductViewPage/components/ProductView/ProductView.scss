@@ -103,33 +103,6 @@
         position: absolute;
         bottom: -13px;
       }
-      .prices-box {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        .new-price,.regular-price {
-          font-weight: 700;
-          font-size: 22px;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          /* identical to box height, or 73% */
-  
-          color: $green;
-          .discount-label {
-            color: $white;
-            background-color: $green;
-            font-weight: 400;
-            font-size: 15px;
-            padding: 2px 4px 2px 6px;
-            align-items: center;
-          }
-        }
-        .old-price {
-          text-decoration: line-through;
-          color: #a5a5a5;
-        }
-      }
     }
     .short-description {
       font-family: 'Cera Pro';

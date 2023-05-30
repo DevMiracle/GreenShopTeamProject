@@ -1,16 +1,16 @@
 import './ProductView.scss';
 import { products } from '../../../HomePage/components/ProductsPart/ProductsData';
 import { useParams } from 'react-router-dom';
+import PriceBox from './components/PriceBox/PriceBox';
 import React, { useState } from 'react';
-import ZoomImg from '../ZoomInEffect/ZoomInEffect';
-import cartIcon from './assets/cart-icon.svg';
+import ZoomImg from './components/ZoomInEffect/ZoomInEffect';
 import facebookIcon from './assets/Facebook.svg';
 import heartIcon from './assets/heart-icon.svg';
 import linkedInIcon from './assets/Linkedin.svg';
 import mailIcon from './assets/Mail.svg';
 import twitterIcon from './assets/Twitter.svg';
 
-const ProductView = () => {
+function ProductView() {
   const { productId } = useParams();
 
   const parsedProductId = productId ? parseInt(productId) : undefined;
@@ -99,25 +99,11 @@ const ProductView = () => {
           )}
         </div>
         <div className="price-and-stars">
-          <div className="prices-box">
-            {product.sale ? (
-              <>
-                <div className="new-price">
-                  ${calculateSalePrice(selectedSize.price, product.discountPercentage)}
-                  {/* Display 'sale' on top of the products */}
-                  {product.sale && (
-                    <span className="discount-label">{`${Math.floor(
-                      product.discountPercentage * 100,
-                    )}%`}</span>
-                  )}
-                </div>
-                <span className="old-price">${selectedSize.price}</span>
-              </>
-            ) : (
-              <span className="regular-price">${selectedSize.price}</span>
-            )}
-          </div>
-
+          <PriceBox
+            sale={product.sale}
+            discountPercentage={product.discountPercentage}
+            price={selectedSize.price}
+          />
           <span className="stars"></span>
         </div>
         <div className="short-description">
@@ -192,6 +178,6 @@ const ProductView = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ProductView;
