@@ -58,12 +58,6 @@ function ProductView() {
 
   const selectedSize = product.sizes[selectedSizeIndex];
 
-  const calculateSalePrice = (price: string, discountPercentage: number) => {
-    // Calculate the new price based on the discount percentage
-    const newPrice = parseFloat(price) * (1 - discountPercentage);
-    return newPrice.toFixed(2); // Round the new price to 2 decimal places
-  };
-
   return (
     <div className="container">
       <div className="product">
