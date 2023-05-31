@@ -49,6 +49,39 @@
         font-weight: 700;
       }
     }
+    .super-sale-banner-image {
+      width: 100%;
+    }
+    .price-range-slider-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      margin-left: 30px;
+      .price-range-distance-box {
+        display: flex;
+        .price-range-distance {
+          margin: 0;
+          color: $green;
+          margin-left: 5px;
+        }
+      }
+      .reset-button {
+        color: $white;
+        background-color: $green;
+        border: none;
+        padding: 10px;
+        max-width: 90px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 15px;
+      }
+    }
+    .banner-container {
+      padding-top: 30px;
+    }
   }
 
   .main {
@@ -65,6 +98,7 @@
         display: flex;
         gap: 40px;
         white-space: nowrap;
+
         .product-filter {
           color: $dark-gray;
           text-decoration: none;
@@ -75,7 +109,27 @@
           font: inherit;
           cursor: pointer;
           outline: inherit;
+          position: relative;
+
+          &:hover {
+            font-weight: 700;
+            color: $green;
+            &::after {
+              width: 100%;
+            }
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: $green;
+            bottom: -6px;
+            left: 0;
+            transition: 0.4s;
+          }
         }
+
         .active {
           font-weight: 700;
           font-size: 15px;
@@ -87,6 +141,7 @@
           text-decoration-thickness: 3px;
           text-underline-offset: 7px;
         }
+
         h5 {
           padding-left: 400px;
           margin: 0;
@@ -118,7 +173,7 @@
             .dropdown-icon {
               margin-left: 8px;
               transition: transform 0.2s;
-          
+
               &.open {
                 transform: rotate(-90deg);
               }
@@ -164,157 +219,158 @@
       gap: 33px;
       row-gap: 70px;
       padding-top: 31px;
+      .product-link-to {
+        text-decoration: none;
 
-      .product-box {
-        font-family: 'Cera Pro';
+        .product-box {
+          font-family: 'Cera Pro';
 
-        .product-border {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 258px;
-          height: 300px;
-          background-color: $off-white;
-          cursor: pointer;
+          .product-border {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 258px;
+            height: 300px;
+            background-color: $off-white;
+            cursor: pointer;
 
-          &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: transparent;
-            transition: background-color 0.3s ease;
-          }
+            &:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 2px;
+              background-color: transparent;
+              transition: background-color 0.3s ease;
+            }
 
-          &:hover:before {
-            background-color: $green;
-          }
+            &:hover:before {
+              background-color: $green;
+            }
 
-          &:hover {
+            &:hover {
+              .product-icons {
+                opacity: 1;
+              }
+            }
+
             .product-image {
-              transform: translateY(-5px); /* Adjust the value as needed */
+              position: relative;
+              z-index: 1;
+              max-width: 250px;
+              max-height: 250px;
+            }
+            .discount-label {
+              position: absolute;
+              top: 14px;
+              left: -7px;
+              font-size: 16px;
+              text-transform: uppercase;
+              color: white;
+              padding: 4px;
+              padding-left: 10px;
+              background-color: $green;
+              box-shadow: 0 1.8px 3.2px rgba(0, 0, 0, 0.1), 0 1.7px 10.3px rgba(0, 0, 0, 0.065),
+                0 3.5px 10px rgba(0, 0, 0, 0.05), 0 7.5px 7px rgba(0, 0, 0, 0.05);
             }
 
             .product-icons {
-              opacity: 1;
-            }
-          }
-
-          .product-image {
-            position: relative;
-            z-index: 1;
-          }
-          .discount-label {
-            position: absolute;
-            top: 14px;
-            left: -7px;
-            font-size: 16px;
-            text-transform: uppercase;
-            color: white;
-            padding: 4px;
-            padding-left: 10px;
-            background-color: $green;
-            box-shadow: 0 1.8px 3.2px rgba(0, 0, 0, 0.1), 0 1.7px 10.3px rgba(0, 0, 0, 0.065),
-              0 3.5px 10px rgba(0, 0, 0, 0.05), 0 7.5px 7px rgba(0, 0, 0, 0.05);
-          }
-
-          .product-icons {
-            display: flex;
-            position: absolute;
-            left: 0;
-            right: 0;
-            transform: translate(0%, 275%);
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 2;
-            //Separate icons from each other
-            justify-content: space-evenly;
-            margin: 0 70px; //Limit the icon box from the left and from the right
-
-            .add-to-button {
               display: flex;
-              align-items: center;
+              position: absolute;
+              left: 0;
+              right: 0;
+              transform: translate(0%, 275%);
               justify-content: center;
-              border-radius: 4px;
-              cursor: pointer;
-              margin: 3px;
-              background: #ffffff;
-              width: 35px;
-              height: 35px;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+              z-index: 2;
+              //Separate icons from each other
+              justify-content: space-evenly;
+              margin: 0 70px; //Limit the icon box from the left and from the right
 
-              .default-icon {
+              .add-to-button {
                 display: flex;
-              }
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                cursor: pointer;
+                margin: 3px;
+                background: #ffffff;
+                width: 35px;
+                height: 35px;
 
-              .hover-icon {
-                display: none;
-              }
-
-              &:hover {
                 .default-icon {
-                  display: none;
+                  display: flex;
                 }
 
                 .hover-icon {
-                  display: flex;
+                  display: none;
+                }
+
+                &:hover {
+                  .default-icon {
+                    display: none;
+                  }
+
+                  .hover-icon {
+                    display: flex;
+                  }
                 }
               }
             }
           }
-        }
 
-        .product-name {
-          display: flex;
-          align-items: center;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 16px;
-          /* identical to box height, or 100% */
+          .product-name {
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 16px;
+            /* identical to box height, or 100% */
 
-          color: $dark-gray;
+            color: $dark-gray;
 
-          margin: 0;
-          padding-top: 12px;
-          padding-bottom: 6px;
-          cursor: pointer;
-        }
-
-        .new-arrival-label {
-          background-color: rgb(0, 94, 255);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 3px;
-          box-shadow: 0 1.8px 3.2px rgba(0, 0, 0, 0.1), 0 1.7px 10.3px rgba(0, 0, 0, 0.065),
-            0 3.5px 10px rgba(0, 0, 0, 0.05), 0 7.5px 7px rgba(0, 0, 0, 0.05);
-          margin-left: 10px;
-          padding: 2px 6px;
-          .new {
-            text-transform: uppercase;
-            color: white;
-            font-size: 12px;
+            margin: 0;
+            padding-top: 12px;
+            padding-bottom: 6px;
+            cursor: pointer;
           }
-        }
 
-        .price,
-        .new-price {
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 16px;
-          /* identical to box height, or 89% */
+          .new-arrival-label {
+            background-color: rgb(0, 94, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            box-shadow: 0 1.8px 3.2px rgba(0, 0, 0, 0.1), 0 1.7px 10.3px rgba(0, 0, 0, 0.065),
+              0 3.5px 10px rgba(0, 0, 0, 0.05), 0 7.5px 7px rgba(0, 0, 0, 0.05);
+            margin-left: 10px;
+            padding: 2px 6px;
+            .new {
+              text-transform: uppercase;
+              color: white;
+              font-size: 12px;
+            }
+          }
 
-          color: $green;
-        }
-        .old-price {
-          text-decoration: line-through;
-          color: #a5a5a5;
-          margin-left: 15px;
-          font-weight: 400;
+          .price,
+          .new-price {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 16px;
+            /* identical to box height, or 89% */
+
+            color: $green;
+          }
+          .old-price {
+            text-decoration: line-through;
+            color: #a5a5a5;
+            margin-left: 15px;
+            font-weight: 400;
+          }
         }
       }
       .no-products {
@@ -323,6 +379,33 @@
           max-width: 50vh;
           display: block;
         }
+      }
+    }
+  }
+}
+.pagination-box {
+  display: flex;
+  .pagination {
+    display: flex;
+    gap: 10px;
+    margin: 90px 120px 0 auto;
+    .pagination-button {
+      font-family: 'Cera Pro';
+      width: 35px;
+      height: 35px;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid #e5e5e5;
+      color: $dark-gray;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 16px;
+      &.active {
+        font-family: 'Cera Pro';
+        font-weight: 700;
+        background-color: $green;
+        color: $white;
       }
     }
   }
