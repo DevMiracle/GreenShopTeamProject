@@ -2,7 +2,7 @@ import './LoginPage.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import close from './assets/Vector 139 (Stroke).svg';
+import close from './assets/close.svg';
 import google from './assets/Group.svg';
 import facebook from './assets/Vector (12).svg';
 import logo from './assets/Vector (13).svg';
@@ -16,7 +16,7 @@ export const LoginPage = () => {
   return (
     <div className="content">
       <div className="stroke">
-        <Link to="">
+        <Link to="/">
           <img src={close} alt="" />
         </Link>
       </div>

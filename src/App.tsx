@@ -12,13 +12,13 @@ function App() {
     <>
       <Router>
         <Header />
+        <LoginPage/>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:productId" element={<ProductViewPage />} />
         </Routes>
         <Footer />
       </Router>
-      <LoginPage/>
     </>
   );
 }
