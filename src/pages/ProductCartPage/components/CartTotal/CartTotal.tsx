@@ -11,7 +11,7 @@ const CartTotal: React.FC<CartTotalProps> = ({ totalPrice, quantity }) => {
   const [couponDiscount, setCouponDiscount] = useState(0);
 
   useEffect(() => {
-    if (couponCode === 'DISCOUNT10') {
+    if (couponCode === 'ANTOSHKA') {
       setCouponDiscount(totalPrice * 0.1 * quantity);
     } else {
       setCouponDiscount(0);
