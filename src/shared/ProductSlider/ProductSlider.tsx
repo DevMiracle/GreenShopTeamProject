@@ -70,14 +70,14 @@ const slides = [
 
 export const ProductSlider = () => {
   return (
-    <div className="header">
+    <div className="product-header">
       <span className="products">Related Products</span>
       <div className="line">
         <img src={line} alt="" />
       </div>
       <Slider {...SliderSettings}>
         {slides.map((slide) => (
-          <div className="slide" key={slide.title}>
+          <div className="product-slide" key={slide.title}>
             <div className="top">
               <a href="/">
                 <img src={slide.image} alt="" />

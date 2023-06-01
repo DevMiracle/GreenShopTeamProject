@@ -18,7 +18,7 @@ export const PlantCard = () => {
   ];
 
   return (
-    <div className="wrapper">
+    <div className="card-wrapper">
       {cards.map((card, index) => (
         <div className="card" key={index}>
           <div className="card-img">

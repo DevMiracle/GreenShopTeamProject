@@ -1,5 +1,5 @@
 @import "/src/variables";
-.header {
+.product-header {
   margin-top: 127px;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@
     margin-top: 12px;
     width: 80%;
   }
-  .slide {
+  .product-slide {
     margin-top: 44px;
     gap: 26px;
     width: 219px !important;
