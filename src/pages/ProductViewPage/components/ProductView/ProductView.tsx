@@ -59,7 +59,7 @@ function ProductView() {
   const selectedSize = product.sizes[selectedSizeIndex];
 
   return (
-    <div className="container">
+    <div className="product-view-container">
       <div className="product">
         <div className="images-box">
           <div className="small-images">

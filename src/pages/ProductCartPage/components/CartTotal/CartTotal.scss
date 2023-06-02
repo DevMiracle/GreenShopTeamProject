@@ -1,0 +1,130 @@
+@import '/src/variables';
+
+.cart-total-container {
+  margin-top: 100px;
+  .cart-total-title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 16px;
+  }
+  .cart-total-line {
+    margin-top: 11px;
+    width: 328px;
+    border: 0.1px solid rgba(70, 163, 88, 0.5);
+    opacity: 0.5;
+  }
+
+  .cart-total-main {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 10px;
+    width: 328px;
+    height: 338px;
+    background-color: $off-white;
+
+    .form {
+      display: flex;
+      margin-top: 10px;
+      input {
+        width: 230px;
+        height: 30px;
+        border: 1px solid $green;
+        border-radius: 3px;
+      }
+      input::placeholder {
+        color: #a5a5a5;
+        padding: 13px 9px;
+      }
+      .coupon_button {
+        margin-left: -5px;
+        width: 102px;
+        border: none;
+        background-color: $green;
+        color: $white;
+        font-family: 'Cera Pro';
+        cursor: pointer;
+      }
+    }
+
+    .price-part {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .prices {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 16px;
+
+        .price {
+          font-weight: 600;
+          font-size: 17px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 10px;
+
+          a {
+            font-size: 12px;
+            font-weight: 400;
+            color: $green;
+            text-decoration: none;
+          }
+        }
+      }
+      .coupon-discount {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 16px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .total-price {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 16px;
+
+        .total-price-color {
+          color: $green;
+          font-size: 18px;
+        }
+      }
+      .coupon {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: $dark-gray;
+      }
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .checkout-button {
+          width: 332px;
+          height: 40px;
+          background-color: $green;
+          color: $white;
+          font-weight: 700;
+          font-size: 15px;
+          line-height: 16px;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+        }
+        a {
+          margin-top: 15px;
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 16px;
+          text-decoration: none;
+          color: $green;
+        }
+      }
+    }
+  }
+}
