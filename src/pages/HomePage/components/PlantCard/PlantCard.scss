@@ -4,7 +4,7 @@ body {
   width: 100%;
 }
 
-.wrapper {
+.card-wrapper {
   display: flex;
   gap: 28px;
   justify-content: center;
@@ -41,7 +41,7 @@ body {
       .card-main {
         margin-top: 10px;
         margin-left: 10px;
-        color: $white;
+        color: $gray;
         width: 292px;
         font-weight: 400;
         font-size: 14px;
