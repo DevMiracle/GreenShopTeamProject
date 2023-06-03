@@ -17,87 +17,66 @@ export const HeroPart = () => {
     autoplay: true,
     autoplaySpeed: 5000,
   };
+
+  const slides = [
+    {
+      heroHeader: 'Welcome to GreenShop',
+      slogan: "Let's Make a",
+      sloganText: 'Better',
+      planetColor: 'PLANET',
+      heroFooter:
+        'We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!',
+      buttonText: 'SHOP NOW',
+      image: slide_1_plant,
+    },
+    {
+      heroHeader: 'Transform Your Space with Plants',
+      slogan: 'renew your home',
+      sloganText: 'with',
+      planetColor: 'greenery',
+      heroFooter:
+        'Plants not only add a touch of nature to your home, but also purify the air, reduce stress, and boost creativity. Explore our selection of plants to find the perfect ones for your space.',
+      buttonText: 'SHOP NOW',
+      image: slide_2_plant,
+    },
+    {
+      heroHeader: 'Elevate Your Decor with Our Plants',
+      slogan: 'Enhance Your Life',
+      sloganText: 'with',
+      planetColor: 'Natural Beauty',
+      heroFooter:
+        "Our plants aren't just beautiful, they're also versatile. From modern to bohemian, our collection of plants can complement any decor style. Shop now to find the perfect plant for your space.",
+      buttonText: 'SHOP NOW',
+      image: slide_3_plant,
+    },
+  ];
+
   return (
     <>
       <div className="wrap">
         <Slider {...settings}>
-          <div className="hero-slide">
-            <div className="hero-wrapper">
-              <div className="left-side">
-                <p className="hero-header">Welcome to GreenShop</p>
-                <div className="slogan">
-                  Let's Make a
-                  <p className="slogan-text">
-                    {' '}
-                    Better <span id="planet-color">PLANET</span>
-                  </p>
+          {slides.map((slide, index) => (
+            <div className="hero-slide" key={index}>
+              <div className="hero-wrapper">
+                <div className="left-side">
+                  <p className="hero-header">{slide.heroHeader}</p>
+                  <div className="slogan">
+                    {slide.slogan}
+                    <p className="slogan-text">
+                      {slide.sloganText} <span id="planet-color">{slide.planetColor}</span>
+                    </p>
+                  </div>
+                  <div className="hero-footer">{slide.heroFooter}</div>
+                  <button className="shop-button">{slide.buttonText}</button>
                 </div>
-                <div className="hero-footer">
-                  We are an online plant shop offering a wide range of cheap and trendy plants. Use <br /> our
-                  plants to create an unique Urban Jungle. Order your favorite plants!
+                <div className="right-side">
+                  <picture>
+                    <img src={slide.image} alt="plants" />
+                  </picture>
                 </div>
-
-                <button className="shop-button">SHOP NOW</button>
-              </div>
-              <div className="right-side">
-                <picture>
-                  <img src={slide_1_plant} alt="plants" />
-                </picture>
               </div>
             </div>
-          </div>
-
-          <div className="hero-slide">
-            <div className="hero-wrapper">
-              <div className="left-side">
-                <p className="hero-header">Transform Your Space with Plants</p>
-                <div className="slogan">
-                  renew your home
-                  <p className="slogan-text">
-                    {' '}
-                    with <span id="planet-color">greenery</span>
-                  </p>
-                </div>
-                <div className="hero-footer">
-                  Plants not only add a touch of nature to your home, but also purify the air, reduce stress,{' '}
-                  <br /> and boost creativity. Explore our selection of plants to find the perfect ones for
-                  your space.
-                </div>
-                <button className="shop-button">SHOP NOW</button>
-              </div>
-              <div className="right-side">
-                <picture>
-                  <img src={slide_2_plant} alt="plants" />
-                </picture>
-              </div>
-            </div>
-          </div>
-
-          <div className="hero-slide">
-            <div className="hero-wrapper">
-              <div className="left-side">
-                <p className="hero-header">Elevate Your Decor with Our Plants</p>
-                <div className="slogan">
-                  Enhance Your Life
-                  <p className="slogan-text">
-                    {' '}
-                    with <span id="planet-color">Natural Beauty</span>
-                  </p>
-                </div>
-                <div className="hero-footer">
-                  Our plants aren't just beautiful, they're also versatile. From modern to bohemian, our
-                  collection <br /> of plants can complement any decor style. Shop now to find the perfect
-                  plant for your space.
-                </div>
-                <button className="shop-button">SHOP NOW</button>
-              </div>
-              <div className="right-side">
-                <picture>
-                  <img src={slide_3_plant} alt="plants" />
-                </picture>
-              </div>
-            </div>
-          </div>
+          ))}
         </Slider>
       </div>
     </>

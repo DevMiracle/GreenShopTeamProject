@@ -36,6 +36,7 @@ html {
         }
       }
       .hero-footer {
+        width: 557px;
         margin-top: -65px;
         color: $gray;
         font-style: normal;
@@ -58,6 +59,9 @@ html {
 }
 
 @media (max-width: 426px) {
+  .wrap .slick-dots{
+    bottom: 10px;
+  }
   .hero-slide {
     .hero-wrapper .left-side .shop-button {
       margin-top: 10px;
@@ -78,6 +82,7 @@ html {
     .hero-wrapper .left-side .hero-footer {
       margin-top: -35px;
       font-size: 12px;
+      width: auto;
     }
 
     picture {
@@ -108,6 +113,7 @@ html {
     .hero-wrapper .left-side .hero-footer {
       margin-top: -35px;
       font-size: 12px;
+      width: auto;
     }
     .hero-wrapper .right-side {
       picture {
@@ -141,6 +147,7 @@ html {
     .hero-wrapper .left-side .hero-footer {
       margin-top: -35px;
       font-size: 12px;
+      width: auto;
     }
     .hero-wrapper .right-side {
       picture {
