@@ -410,3 +410,14 @@
     }
   }
 }
+@media (max-width: 426px) {
+  .products-container .categories{
+    display: none;
+  }
+  .products-container .main .products-top .sort-by{
+    display: none;
+  }
+  .products-container .main .products{
+    padding-left: 30px;
+  }
+}

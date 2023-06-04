@@ -92,6 +92,11 @@ body {
   .card-wrapper .card .card-button {
     margin-left: 130px;
   }
+  .card-wrapper .card .right-side .card-main{
+    width: auto;
+    font-size: 13px;
+    line-height: 20px;
+  }
 }
 
 @media (min-width: 427px) and (max-width: 768px) {

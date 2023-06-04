@@ -171,6 +171,9 @@
 }
 
 @media (max-width: 426px) {
+  .wrap{
+    width: 98%;
+  }
   .wrap .slick-dots{
     bottom: 10px;
   }
