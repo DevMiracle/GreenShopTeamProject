@@ -1,4 +1,5 @@
 .footer {
+  background-color: #fbfbfb;
   width: 90%;
   display: flex;
   justify-content: center;
@@ -37,6 +38,9 @@
       .boxes:nth-child(2),
       .boxes:nth-child(3) {
         padding-left: 50px;
+        @media (max-width: 426px) {
+          padding-left: 30px;
+        }
       }
       .boxes:nth-child(3) {
         border: none;
@@ -237,41 +241,71 @@
   }
 }
 
-
 @media (max-width: 426px) {
   .footer {
+    align-items: center;
+    flex-wrap: wrap;
+
     .invitation {
       flex-wrap: wrap;
+      margin: 0px 10px 0px 10px;
+      .right {
+        width: auto;
+        p {
+          width: 270px;
+        }
+        form {
+          p {
+            font-size: 15px;
+          }
+          .join {
+            width: 250px;
+          }
+        }
+      }
       .left {
         margin: 20px 0 20px 0;
         flex-wrap: wrap;
         .boxes {
-          padding-left: 50px;
+          padding-left: 30px;
           border: none;
         }
       }
     }
+
     .contact {
-      padding: 20px 0 20px 0;
       gap: 20px;
+      flex-direction: column;
+      width: auto;
+      align-items: center;
       flex-wrap: wrap;
-      justify-content: center;
+      padding-bottom: 10px;
+      margin-left: -30px;
+
       .greenshop {
         padding-left: 0;
         justify-content: center;
       }
       .location {
-        padding-left: 0;
+        width: auto;
+        padding: 0;
       }
     }
     .bottom {
+      border-bottom: none;
       flex-wrap: wrap;
+      flex-direction: column;
+      padding: 20px 0px 20px 0px;
       .left {
-        padding: 20px 0 20px 0;
+        padding: 20px 0 20px 24px;
         flex-wrap: wrap;
         gap: 40px;
+        flex-direction: column;
         .account {
-          text-align: center;
+          width: 280px;
+          ul{
+            padding: 0;
+          }
           p {
             margin: 0;
           }
@@ -283,6 +317,9 @@
         gap: 0;
       }
     }
+  }
+  .end {
+    width: 300px;
   }
 }
 
