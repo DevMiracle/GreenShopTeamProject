@@ -1,6 +1,7 @@
 import './ProductView.scss';
 import { products } from '../../../HomePage/components/ProductsPart/ProductsData';
-import { useParams } from 'react-router-dom';
+import { useCart } from '../../../CartPage/components/CartContext';
+import { useNavigate, useParams } from 'react-router-dom';
 import PriceBox from './components/PriceBox/PriceBox';
 import React, { useState } from 'react';
 import ZoomImg from './components/ZoomInEffect/ZoomInEffect';
@@ -10,8 +11,9 @@ import linkedInIcon from './assets/Linkedin.svg';
 import mailIcon from './assets/Mail.svg';
 import twitterIcon from './assets/Twitter.svg';
 
-function ProductView() {
-  const { productId } = useParams();
+export const ProductView: React.FC = () => {
+  const navigate = useNavigate();
+  const { productId } = useParams<{ productId: string }>();
 
   const parsedProductId = productId ? parseInt(productId) : undefined;
   const product = products.find((product) => product.id === parsedProductId);
@@ -20,11 +22,11 @@ function ProductView() {
   const [selectedSizeIndex, setSelectedSizeIndex] = useState(0);
   const [productQuantity, setProductQuantity] = useState(1);
 
-  const handlePhotoClick = (index: React.SetStateAction<number>) => {
+  const handlePhotoClick = (index: number) => {
     setSelectedPhotoIndex(index);
   };
 
-  const handleSizeClick = (index: React.SetStateAction<number>, price: string) => {
+  const handleSizeClick = (index: number, price: string) => {
     if (price !== '-') {
       setSelectedSizeIndex(index);
     }
@@ -41,13 +43,39 @@ function ProductView() {
   };
 
   const handleBuyNow = () => {
-    // Handle the buy now functionality
+    if (!product) {
+      return; // Product not found, handle accordingly
+    }
+
+    const selectedProduct = {
+      id: product.id,
+      name: product.name,
+      price: parseFloat(product.sizes[selectedSizeIndex].price),
+      quantity: productQuantity,
+      image: product.photos[selectedPhotoIndex],
+    };
+
+    addToCart(selectedProduct);
+    navigate('/cart');
   };
+
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    // Handle adding the product to the cart
-  };
+    if (!product) {
+      return; // Product not found, handle accordingly
+    }
 
+    const selectedProduct = {
+      id: product.id,
+      name: product.name,
+      price: parseFloat(product.sizes[selectedSizeIndex].price),
+      quantity: productQuantity,
+      image: product.photos[selectedPhotoIndex],
+    };
+
+    addToCart(selectedProduct);
+  };
   const handleAddToFavorites = () => {
     // Handle adding the product to favorites
   };
@@ -172,6 +200,6 @@ function ProductView() {
       </div>
     </div>
   );
-}
+};
 
 export default ProductView;

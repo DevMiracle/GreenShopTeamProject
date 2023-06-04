@@ -13,13 +13,13 @@
     line-height: 16px;
     color: $dark-gray;
     .price-title {
-      margin-left: 216px;
+      margin-left: 220px;
     }
     .quantity-title {
       margin-left: 90px;
     }
     .total-title {
-      margin-left: 100px;
+      margin-left: 110px;
     }
   }
   .line {
@@ -34,17 +34,18 @@
     width: 782px;
     height: 70px;
     background-color: $off-white;
-    gap: 75px;
+    gap: 88px;
 
     .img {
-      width: 15%;
       img {
         width: 65px;
         height: 65px;
       }
     }
     .title {
-      margin-left: -100px;
+      margin-left: -50px;
+      white-space: nowrap;
+      width: 100px;
 
       font-weight: 500;
       font-size: 16px;
@@ -60,13 +61,35 @@
       span {
         width: 10px;
       }
-
-      button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-      }
     }
+    .quantity-button-minus {
+      display: flex;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: none;
+      background-color: $green;
+      color: $white;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 28px;
+      /* Set line-height: 1; to ensure minus button sits perfectly in the circle */
+      line-height: 1;
+    }
+    .quantity-button-plus {
+        display: flex;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: none;
+        background-color: $green;
+        color: $white;
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 28px;
+      }
     .total-price {
       width: 61px;
 
@@ -83,5 +106,6 @@
     font-size: 16px;
     line-height: 16px;
     color: $gray;
+    width: 25px;
   }
 }

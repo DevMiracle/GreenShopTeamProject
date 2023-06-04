@@ -1,7 +1,11 @@
 import './Header.scss';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../pages/CartPage/components/CartContext';
 
 export const Header = () => {
+  const { cartItems } = useCart();
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <header>
       <div className="headerContainer">
@@ -42,9 +46,9 @@ export const Header = () => {
             </Link>
           </div>
           <div className="shoppingBox">
-            <Link to="" className="shoppingBoxButton">
+            <Link to="/cart" className="shoppingBoxButton">
               <img src="./images/Vector (11).svg" alt="" />
-              <span className="shoppingText">6</span>
+              <span className="shoppingText">{totalItems}</span>
             </Link>
           </div>
           <div className="loginBox">
@@ -60,5 +64,3 @@ export const Header = () => {
     </header>
   );
 };
-
-// export default Header

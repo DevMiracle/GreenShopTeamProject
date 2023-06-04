@@ -143,7 +143,7 @@ export const ProductsPart = () => {
 
   return (
     <div>
-      <div className="products-container">
+      <div className="products-container-on-home">
         <div className="categories">
           <h4>Categories</h4>
           <div className="categories-list">
