@@ -1,6 +1,6 @@
 import './App.css';
 import { CartProvider } from './pages/CartPage/components/CartContext';
-import { Header } from './shared/Header/Header';
+import Header from './shared/Header/Header';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import CartPage from './pages/CartPage/CartPage';
 import Footer from './shared/Footer/Footer';
