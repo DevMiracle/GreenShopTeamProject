@@ -13,7 +13,7 @@
     line-height: 16px;
     color: $dark-gray;
     .price-title {
-      margin-left: 220px;
+      margin-left: 225px;
     }
     .quantity-title {
       margin-left: 90px;
@@ -78,18 +78,18 @@
       line-height: 1;
     }
     .quantity-button-plus {
-        display: flex;
-        justify-content: center;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        border: none;
-        background-color: $green;
-        color: $white;
-        cursor: pointer;
-        font-weight: 400;
-        font-size: 28px;
-      }
+      display: flex;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: none;
+      background-color: $green;
+      color: $white;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 28px;
+    }
     .total-price {
       width: 61px;
 
@@ -107,5 +107,113 @@
     line-height: 16px;
     color: $gray;
     width: 25px;
+  }
+  .cart-summary {
+    position: relative;
+    left: 950px;
+    bottom: 150px;
+    width: 330px;
+    height: 360px;
+
+    .line2 {
+      width: 328px;
+      height: 0px;
+      border: 0.3px solid rgba(70, 163, 88, 0.5);
+      opacity: 0.5;
+    }
+  }
+  .cart-main {
+    background-color: $off-white;
+    height: 370px;
+    padding: 10px;
+    .coupon {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+    }
+    .coupon-input {
+      display: flex;
+      input {
+        width: 332px;
+        height: 35px;
+        border-color: $green;
+        border-radius: 3px;
+        padding-left: 15px;
+      }
+      button {
+        width: 100px;
+        height: 40.2px;
+        margin-left: -20px;
+        border: none;
+        background-color: $green;
+        color: $white;
+        cursor: pointer;
+      }
+    }
+    .price-part {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 16px;
+
+      .prices {
+        display: flex;
+        justify-content: space-between;
+        height: 35px;
+
+        span {
+          margin-top: 15px;
+        }
+      }
+      .shipping-fee {
+        display: flex;
+        float: right;
+        a {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 16px;
+          color: $green;
+          text-decoration: none;
+        }
+      }
+
+      .total-price {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 16px;
+
+        span {
+          margin-top: 15px;
+          color: $green;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 16px;
+        }
+      }
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      .checkout-button {
+        width: 300px;
+        height: 40px;
+        background-color: $green;
+        border-radius: 3px;
+        border-color: $green;
+        color: $white;
+        cursor: pointer;
+      }
+      .continue-shopping-link {
+        color: $green;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 16px;
+        text-decoration: none;
+      }
+    }
   }
 }
