@@ -1,7 +1,10 @@
 import './Header.scss';
+import { LoginPage } from '../../pages/LoginPage/LoginPage';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header>
       <div className="headerContainer">
@@ -49,10 +52,13 @@ export const Header = () => {
           </div>
           <div className="loginBox">
             <Link to="" className="loginBoxButton">
-              <button className="loginButton">
+              <button 
+              onClick={() => setIsOpen(true)}
+              className="loginButton">
                 <img src="./images/Logout.svg" alt="" />
                 <span className="loginText">Login</span>
               </button>
+              {isOpen && <LoginPage setIsOpen={setIsOpen} />}
             </Link>
           </div>
         </div>

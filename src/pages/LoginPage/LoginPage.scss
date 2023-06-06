@@ -1,11 +1,18 @@
-@import 'variables.scss';
+@import '../../variables';
 
 .content {
     width: 500px;
-    height: auto;
+    height: 600px;
     background-color: $white;
     margin: auto;
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 160px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
   
     &::after {
       content: '';
@@ -13,18 +20,20 @@
       height: 10px;
       background: $green;
       position: absolute;
-      bottom: -68px;
+      bottom: 0px;
     }
   
     .stroke {
+      background: none;
+      border: none;
       position: absolute;
       right: 15px;
-      top: -38px;
+      top: 14px;
     }
   
     .container {
       width: 60%;
-      margin: 50px auto 0px;
+      margin: 0px auto;
   
       .group {
         display: flex;

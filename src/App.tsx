@@ -10,15 +10,10 @@ import React from 'react';
 function App() {
   return (
     <>
-      <Router>
-        <Header />
-        <LoginPage/>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product/:productId" element={<ProductViewPage />} />
-        </Routes>
-        <Footer />
-      </Router>
+      {/* <Header /> */}
+      <LoginPage/>
+      {/* <HomePage />
+      <Footer /> */}
     </>
   );
 }

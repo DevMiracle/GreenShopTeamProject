@@ -9,17 +9,25 @@ import logo from './assets/Vector (13).svg';
 import googleMobile from './assets/Group (1).svg';
 import facebookMobile from './assets/Vector (14).svg';
 
-export const LoginPage = () => {
+export const LoginPage = (props:any) => {
+  const {setIsOpen} = props;
   const [password, setPassword] = useState('');
   const [visible, setVisible] = useState(true);
 
   return (
     <div className="content">
+<<<<<<< Updated upstream
       <div className="stroke">
         <Link to="/">
+=======
+      <button
+      onClick={() => setIsOpen(false)}
+      className="stroke">
+        <Link to="">
+>>>>>>> Stashed changes
           <img src={close} alt="" />
         </Link>
-      </div>
+      </button>
       <div className="container">
         <div className="logo">
           <div className="logoImg">
@@ -40,9 +48,9 @@ export const LoginPage = () => {
             <Link to="">Register</Link>
           </div>
         </div>
-        <div className="loginForm">
+        <form className="loginForm">
           <span> Enter your username and password to login.</span>
-          <input type="text" className="text" />
+          <input type="email" className="text" />
           <input
             value={password}
             type={visible ? 'password' : 'text'}
@@ -53,7 +61,7 @@ export const LoginPage = () => {
           <button className="hideShowIcon" onClick={() => setVisible(!visible)}>
             {visible ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
           </button>
-        </div>
+        </form>
         <div className="forgotPsw">
           <Link to="">
             <span>Forgot Password?</span>
