@@ -38,6 +38,7 @@
 
     .img {
       img {
+        object-fit: cover;
         width: 65px;
         height: 65px;
       }
@@ -136,9 +137,9 @@
       input {
         width: 332px;
         height: 35px;
-        border-color: $green;
         border-radius: 3px;
         padding-left: 15px;
+        border: 2px solid $green;
       }
       button {
         width: 100px;
@@ -203,7 +204,7 @@
         height: 40px;
         background-color: $green;
         border-radius: 3px;
-        border-color: $green;
+        border: 0px solid $green;
         color: $white;
         cursor: pointer;
       }
@@ -217,3 +218,4 @@
     }
   }
 }
+

@@ -1,7 +1,7 @@
 import './PlantCard.scss';
 import arrow from './assets/Arrow - Right.svg';
-import left_img from './assets/LeftCardImage.png';
-import right_img from './assets/RightCardImage.png';
+import left_img from '../ProductsPart/assets/product-5.png';
+import right_img from '../ProductsPart/assets/product-3.png';
 
 export const PlantCard = () => {
   const cards = [

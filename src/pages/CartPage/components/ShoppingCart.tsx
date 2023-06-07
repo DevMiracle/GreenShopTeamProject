@@ -52,7 +52,7 @@ export const ShoppingCart = () => {
   const applyPromoCode = () => {
     if (promoCode === 'ANTOSHKA') {
       const totalPrice = calculateTotalPrice();
-      const discountAmount = totalPrice * 0.1;
+      const discountAmount = totalPrice * 0.5;
       setCouponDiscount(discountAmount);
       setDiscountApplied(true);
     }

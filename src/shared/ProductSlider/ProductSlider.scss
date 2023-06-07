@@ -25,6 +25,12 @@
 
     .top {
       background-color: $off-white;
+
+        a{
+          img{
+            width: 210px;
+          }
+        }
     }
     .bottom {
       margin-top: 19px;
@@ -47,3 +53,5 @@
     }
   }
 }
+
+

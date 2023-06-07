@@ -4,8 +4,8 @@ import './Slider-scss/Slick.scss';
 import React from 'react';
 import Slider from 'react-slick';
 import slide_1_plant from './assets/slide1.png';
-import slide_2_plant from './assets/slide2.png';
-import slide_3_plant from './assets/slide3.png';
+import slide_2_plant from '../ProductsPart/assets/product-1.png';
+import slide_3_plant from '../ProductsPart/assets/product-7.png';
 
 export const HeroPart = () => {
   const settings = {
@@ -14,7 +14,7 @@ export const HeroPart = () => {
     speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
   };
 

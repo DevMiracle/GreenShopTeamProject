@@ -411,13 +411,16 @@
   }
 }
 @media (max-width: 426px) {
-  .products-container .categories{
+  .products-container-on-home .categories{
     display: none;
   }
-  .products-container .main .products-top .sort-by{
+  .products-container-on-home .main .products-top .sort-by{
     display: none;
   }
-  .products-container .main .products{
+  .products-container-on-home .main .products{
     padding-left: 30px;
+  }
+  .products-container-on-home .main .products-top .filters{
+    padding-left: 20px;
   }
 }
