@@ -55,19 +55,30 @@ html {
         cursor: pointer;
       }
     }
+    .right-side{
+      picture{
+        img{
+          max-width: 350px;
+        }
+      }
+    }
   }
 }
-
-@media (max-width: 426px) {
+@media (max-width: 321px){
   .wrap .slick-dots{
-    bottom: 10px;
+    bottom: 7px;
   }
+  
   .hero-slide {
     .hero-wrapper .left-side .shop-button {
-      margin-top: 10px;
+      margin: 0;
     }
     .hero-wrapper {
-      flex-wrap: wrap;
+      padding-left: 30px;
+      padding-right: 5px;
+      flex-wrap: nowrap;
+      align-items: center;
+      height: 360px;
     }
     .hero-wrapper .left-side {
       margin-left: 10px;
@@ -75,11 +86,13 @@ html {
     .hero-wrapper .left-side .hero-header {
       font-size: 15px;
       margin-bottom: 15px;
+      font-weight: 700;
     }
     .hero-wrapper .left-side .slogan {
-      font-size: 35px;
+      font-size: 27px;
     }
     .hero-wrapper .left-side .hero-footer {
+      display: none;
       margin-top: -35px;
       font-size: 15px;
       width: auto;
@@ -87,11 +100,52 @@ html {
 
     picture {
       display: none;
+      
+    }
+  }
+}
+@media (min-width: 322px) and (max-width: 426px) {
+  .wrap .slick-dots{
+    bottom: 10px;
+  }
+  .hero-slide {
+    .hero-wrapper .left-side .shop-button {
+      margin-top: 0px;
+    }
+    .hero-wrapper {
+      flex-wrap: nowrap;
+      align-items: center;
+      height: 350px;
+    }
+    .hero-wrapper .left-side {
+      margin-left: 10px;
+    }
+    .hero-wrapper .left-side .hero-header {
+      font-size: 15px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .hero-wrapper .left-side .slogan {
+      font-size: 23px;
+    }
+    .hero-wrapper .left-side .hero-footer {
+      display: none;
+      margin-top: -35px;
+      font-size: 15px;
+      width: auto;
+    }
+
+    picture {
+      img{
+        height: 170px;
+        width: 170px;
+      }
+      
     }
   }
 }
 
-@media (max-width: 1025px) {
+@media (min-width: 768px) and (max-width: 1025px) {
   .hero-slide {
     .hero-wrapper .left-side .shop-button {
       margin-top: 10px;
@@ -99,6 +153,7 @@ html {
     .hero-wrapper {
       display: flex;
       flex-wrap: nowrap;
+      height: 400px;
     }
     .hero-wrapper .left-side {
       margin-left: 10px;
@@ -125,7 +180,7 @@ html {
   }
 }
 
-@media (max-width: 1120px) {
+@media (min-width: 1026px) and (max-width: 1120px) {
   .hero-slide {
     .hero-wrapper .left-side .shop-button {
       margin-top: 10px;

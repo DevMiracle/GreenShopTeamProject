@@ -4,8 +4,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 0 auto;
+  margin: auto;
   font-family: 'Cera Pro';
+  margin-top: 150px;
+  
   .invitation {
     display: flex;
     flex-direction: row;
@@ -249,6 +251,8 @@
     .invitation {
       flex-wrap: wrap;
       margin: 0px 10px 0px 10px;
+      flex-direction: column;
+      align-items: center;
       .right {
         width: auto;
         p {
@@ -266,6 +270,7 @@
       .left {
         margin: 20px 0 20px 0;
         flex-wrap: wrap;
+        flex-direction: column;
         .boxes {
           padding-left: 30px;
           border: none;
@@ -315,6 +320,13 @@
         display: block;
         padding: 0;
         gap: 0;
+
+        .social{
+          padding-left: 20px;
+        }
+        .pay{
+          padding-left: 20px;
+        }
       }
     }
   }
